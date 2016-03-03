@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/social.css' %}">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<!-- <script>
+$(document).ready(function(){
+$('.socialBlock').hide();
+});
+$('div').hover(
+               function () {
+                  $('#s1').stop().slideUp(500);
+				   $('#s2').stop().slideUp(500);
+				    $('#s3').stop().slideUp(500);
+					 $('#s4').stop().slideUp(500);
+               }, 
+               function () {
+				$('#s1').stop().slideDown(500);
+				$('#s2').stop().slideDown(500);
+				$('#s3').stop().slideDown(500);
+				$('#s4').stop().slideDown(500);
+               }
+            );
+
+</script> -->
+<section class="social-platform" style="width: 100%;">
+  <div class="row">
+    <div class="column large-12">
+      <ul>
+        <li class="socialBlock iplTweets" style="background-image:url('{% static 'images/test.png' %}');" id="s1">
+            <div class="hashTag">#VirtualAcademy Tweets</div>
+            <div class="count"><span>39,270,031</span></div>
+            <div class="topTeam">
+			<div class="logoContainer">
+			<div class="tLogo40x Mumbai Indians"></div>
+			</div>
+			<div class="topTeamDetails">
+			<div class="title">Top Trending Sports
+			<div class="total">#Athletics<span>1,114,270</span></div></div>
+			</div>
+            <a onclick="" class="button" style="margin-left: 14px;">Join The Conversation</a>
+        </li>
+		 <li class="socialBlock iplSelfie hide-med" id="s2">
+          <a href="">
+            <div class="title">#GSP_RUGBY</div>
+            <p>Gauteng Sports Federation</p>
+            <div class="selfieImg" style="background-image:url('{% static 'images/GSC-Gauteng-Lions.png' %}')">
+			</div>
+          </a>
+        </li>  
+         <!-- <li class="socialBlock teamBattles hide-med" style="background-image:url('{% static 'images/social-player-battle.jpg' %}')">
+          <div class="title">Facebook Trending</div>
+          <p>See your Favourite Star<br>#YourSport</p>
+          <a href="" class="button">Show Your Support</a>
+        </li> -->
+        <li class="socialBlock teamBattles hide-med" style="background-image:url('{% static 'images/social-player-battle.jpg' %}')" id="s3">
+          <div class="title">Team Battles</div>
+          <p>Match-by-match<br>head-to-head</p>
+          <a href="" class="button">Show Your Support</a>
+        </li>
+        <li class="socialBlock iplSelfie hide-med" id="s4">
+          <a href="">
+            <div class="title">#FavSelfie</div>
+            <p>Pledge your allegiance and flaunt your support</p>
+            <div class="selfieImg" style="background-image:url('{% static 'images/selfie.jpg' %}')">
+			</div>
+          </a>
+        </li>
+	</ul>
+    </div>
+    <!-- END column -->
+  </div>
+  <!-- END row -->
+
+</section>
+    
+<!--       <ul>
+	  <div id="a">
+        <li class="onHover1" style="float:left;width: 25%;background-color:#85e0e0;height: 50px;padding-top:2%;padding-bottom:3%;padding-left:7%">
+            <div class="hashTag">Virtual Academy Tweets</div>
+        </li>
+		</div>
+		<div id="b">
+		 <li class="onHover2" style="float:left;width: 25%;background-color:#2fb7b7;height: 50px;padding-top:2%;padding-bottom:3%;padding-left:7%">
+            <div class="title">Your Sport</div>
+        </li>  
+		</div>
+		<div id="c">
+        <li class="onHover3" style="float:left;width: 25%;background-color:#85e0e0;height: 50px;padding-top:2%;padding-bottom:3%;padding-left:7%">
+          <div class="title">Team Battles</div>
+        </li>
+		</div>
+		<div id="d">
+        <li class="onHover4" style="float:left;width: 25%;background-color:#2fb7b7;height: 50px;padding-top:2%;padding-bottom:3%;padding-left:7%">
+            <div class="title">Selfie</div>
+        </li>
+		</div>
+	</ul> -->

@@ -1,0 +1,95 @@
+{% load staticfiles %}
+{% block content %}
+<h1>
+            Advance Search 
+          </h1>
+<div class="col-md-6" style="margin: 7%;margin-left: 25%;">     
+<div class="input-group input-group-lg">
+                    <div class="input-group-btn">
+             <select class="btn btn-warning dropdown-toggle">
+                        <option disabled selected hidden>Role</option>
+                        <option>Player</option>
+                        <option>Coach</option>
+</select>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control" Placeholder="Enter a name to search" id="search">
+</div>
+<div class="form-group  col-md-4">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="opt1" id="optionsRadios1" value="and1" checked="">
+                          And
+                        </label>
+						<label>
+                          <input type="radio" name="opt1" id="optionsRadios2" value="or1" checked="">
+                          OR
+                        </label>
+                      </div>
+</div>
+<div class="form-group  col-md-4">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="opt2" id="optionsRadios3" value="and2" checked="">
+                          And
+                        </label>
+						<label>
+                          <input type="radio" name="opt2" id="optionsRadios4" value="or2" checked="">
+                          OR
+                        </label>
+                      </div>
+</div>
+<div class="form-group  col-md-4">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="opt3" id="optionsRadios5" value="and3" checked="">
+                          And	
+                        </label>
+						<label>
+                          <input type="radio" name="opt3" id="optionsRadios6" value="or3" checked="">
+                          OR
+                        </label>
+                      </div>
+</div>
+<div class="col-md-4">
+<select class="form-control">
+                        <option disabled selected hidden>Province</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+</select>
+</div>
+<div class="col-md-4">
+<select class="form-control">
+                        <option disabled selected hidden>Academy</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+</select>
+</div>
+<div class="col-md-4">
+<select class="form-control">
+                        <option disabled selected hidden>Sport</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+</select>
+</div>
+<div class="col-md-12" style="margin-top: inherit;">
+<div class="col-md-6">
+<input type="submit" value="Search" class="btn btn-block btn-primary btn-sm">
+</div>
+<div class="col-md-6">
+<input type="submit" value="Reset" class="btn btn-block btn-info btn-sm" onclick="resetFields()">
+</div>
+</div>
+</div>
+ <script src="{% static 'sportsadmin/js/jQuery-2.1.4.min.js' %}"></script> 
+ <script>
+ function resetFields(){
+ load_tab_contents('/advanceSearch/');
+} 
+ </script>
+{% endblock %}

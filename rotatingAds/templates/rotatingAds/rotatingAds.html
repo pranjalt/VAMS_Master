@@ -1,0 +1,32 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Rotating Banners</title>
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script language="Javascript" type="text/javascript">
+{% comment %}Hide from old browsers{% endcomment %}
+adImages = new Array("{% static "extra-images/Ads-1.jpg" %}","{% static "extra-images/Ads-2.jpg" %}","{% static "extra-images/Ads-3.jpg" %}")
+thisAd = 0
+imgCt = adImages.length
+function rotate() {
+if (document.images) {
+thisAd++
+if (thisAd == imgCt) {
+thisAd = 0
+}
+document.adBanner.src=adImages[thisAd]
+setTimeout("rotate()", 3 * 1000)
+}
+}
+// End hide script from old browsers -->
+</script>
+
+{% comment %}<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">{% endcomment %}
+</head>
+<body onload="rotate()">
+<center>
+<img src="{% static "extra-images/Ads-1.jpg" %}" name="adBanner" alt="Ad Banner" class="img-responsive" style="    padding-bottom: 3%;"/>
+</center>
+</body>
+</html>

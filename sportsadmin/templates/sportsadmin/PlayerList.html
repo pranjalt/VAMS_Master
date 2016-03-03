@@ -1,0 +1,360 @@
+{% load table_tags %}
+{% load staticfiles %}
+<link href="{% static 'sportsadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<script src="{% static 'sportsadmin/js/jquery-2.1.4.min.js' %}"></script> 
+<script src="{% static 'sportsadmin/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'sportsadmin/js/commonUtils.js' %}"></script>
+
+        
+
+<style type="text/css">
+
+ .modal.modal-wide .modal-dialog {
+  width: 80%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	var temp={{form.academy}}
+		
+	$(".fa-trash-o").on("click", function() {
+		
+		playerId = $(this).closest('tr').find('td:eq(0)').html();
+		$("#yesDelPlayer").on("click", function(){
+		  
+			var url = '/deletePlayer/'+'?playerId='+playerId;
+		 	$.ajax({
+				url : url,
+				type : "GET",
+				dataType : {},}) 
+			    .done(function(data) {
+			    	console.log("after delete");
+			    	
+			});
+		});
+	  });
+	  
+	  $('.fa-edit').on("click",function(){
+		console.log("hit edit");
+		$('#addPlayerModal').modal('show'); 
+		playerId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewPlayer/'+'?playerId='+playerId;
+		PlayerViewEdit(url);
+		$('#action_type').val("edit");
+		
+	});
+	 
+	 $(".fa-file-text").on("click", function() {
+		
+		$('#addPlayerModal').modal('show'); 	
+		playerId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewPlayer/'+'?playerId='+playerId;
+		PlayerViewEdit(url);
+		viewOnlyAccess();
+		
+	});
+	
+
+	  
+	  $('#addPlayerModal').on('hidden.bs.modal', function () {
+		   tab_handler('Player');
+	});
+	  
+	  $('#deletePlayerModal').on('hidden.bs.modal', function () {
+		   tab_handler('Player');
+	});
+	  
+	  
+	  
+	  
+	  
+	
+});
+
+
+function viewOnlyAccess()
+{
+	$('#id_first_name').prop("disabled", true);
+	$('#id_middle_name').prop("disabled", true);
+	$('#id_last_name').prop("disabled", true);
+	$('#id_email_id').prop("disabled", true);
+	$('#id_contact_no').prop("disabled", true);
+	$('#id_total_yrs_exp').prop("disabled", true);
+	$('#id_sec_ans1').prop("disabled", true);
+	$('#id_date_of_birth').prop("disabled", true);
+	$('#id_street1').prop("disabled", true);
+	$('#id_street2').prop("disabled", true);
+	$('#id_zipcode').prop("disabled", true);
+	$('#id_city').prop("disabled", true);
+	$('#id_province').prop("disabled", true);
+	$('#id_country').prop("disabled", true);
+	$('#id_gender').prop("disabled", true);
+	$('#id_sports').prop("disabled", true);
+	$('#id_sec_ques').prop("disabled", true);
+	$('#id_acd_reg').prop("disabled", true)
+}
+
+function PlayerViewEdit(url)
+{
+	$
+	.ajax({
+		url : url,
+		type : "GET",
+		dataType : 'json',}) 
+		.done(function(data) {
+				    console.log(data.player.player_id);
+	          		$('#player_id').val(data.player.player_id);   	
+       				$('#address_id').val(data.address.address_id);   
+	          		$('#id_first_name').val(data.player.first_name);
+	          		$('#id_middle_name').val(data.player.middle_name);	          		
+	          		$('#id_last_name').val(data.player.last_name);	          		
+	          		$('#id_email_id').val(data.player.email_id);	          		
+	          		$('#id_contact_no').val(data.player.contact_no);	          		
+	          		$('#id_total_yrs_exp').val(data.player.total_yrs_exp);	          		
+	          		$('#id_date_of_birth').val(data.player.date_of_birth);	          		
+	          		$('#id_sec_ans1').val(data.player.sec_ans1);	          			          		
+	          		          			          		
+	          		/* Player Address */
+                    console.log(data.address.address_id)					
+	          		$('#id_street1').val(data.address.street1);	          			          		
+	          		$('#id_street2').val(data.address.street2);	          			          		
+	          		$('#id_zipcode').val(data.address.zipcode);	          			          		
+	          		
+	          		
+	          		$('#id_city').append('<option selected=selected  value=' + data.city.city_id + '>'+data.city.city_name+'</option>');
+	          		$('#id_province').append('<option selected=selected value=' + data.province.province_id + '>'+data.province.province_name+'</option>');
+	          		$('#id_country').append('<option selected=selected value=' + data.country.country_id + '>'+data.country.country_name+'</option>');
+	          	  	//fun of view &edit batch class section pending
+	          		$('#id_gender').append('<option selected=selected  value=' + data.genderVal.gender_id + '>'+data.genderVal.gender+'</option>');
+	          		$('#id_sports').append('<option selected=selected value=' + data.sports.sports_id + '>'+data.sports.sports_name+'</option>');
+	          		$('#id_sec_ques').append('<option selected=selected value=' + data.sec_ques1.sec_ques_id + '>'+data.sec_ques1.sec_ques+'</option>');
+					$('#id_acd_reg').append('<option selected=selected  value=' + data.academy.acd_reg_id + '>'+data.academy.name+'</option>');				
+	
+		});
+	
+}
+$('#saveStudBtn').on("click" , function(){
+
+console.log("In buttonClick funtion");
+ console.log('ajax call');// catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $('#Player').serialize(), // get the form data
+                type: "POST", // GET or POST
+                url: $('#Player').attr('action'), // the file to call
+                success: function(response) { // on success..
+                    console.log("success"); // update the DIV
+                },
+				error: function(response){
+				console.log(response);
+				}
+            });	
+});
+
+
+
+</script>
+<div class="col-md-3 col-sm-6 col-xs-12" style="float: right;width:30%"
+ data-toggle="modal" data-target="#addPlayerModal">
+ <div class="info-box">
+  <span class="info-box-icon bg-green"><i
+   class="fa fa-plus-circle"></i></span>
+		
+  <div class="info-box-content" id="addPlayer" style="padding: 34px 58px; margin-left: 70px;width: 100%;">
+   <span class="info-box-text">Add Player</span>
+  </div>
+  <!-- /.info-box-content -->
+ </div>
+ <!-- /.info-box -->
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deletePlayerModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Are you sure you want
+					to Delete the Player Record ?</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="yesDelPlayer"
+						data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-primary" id="noDelPlayer" name="no"
+						data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Add School Modal -->
+<div class="modal fade modal-wide" id="addPlayerModal" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+     aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Add New Player</h4>
+   </div>
+   <div class="modal-body">
+    
+    <form role="form"  id="Player" method="POST" action="{% url 'addPlayer' %}">
+    <input type="hidden" name="action_type" id="action_type" value="add"/>
+    <input type="hidden" name="player_id" id="player_id" value=""/>
+    <input type="hidden" name="address_id" id="address_id" value=""/>
+    {% csrf_token %} 
+    
+     <!-- {{ AddressFormSet.management_form }} -->
+     <!-- text input -->
+     <div id="loadForm">
+	     <div class="container">
+				<div class="col-lg-12">
+					<div class="row">
+							
+								
+									
+									<div class="row form-group">
+										<label> Player Deatails :</label>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>first_name</label>
+											   {{playerform.first_name}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>middle_name</label>
+											   {{playerform.middle_name}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>last_name</label>
+											   {{playerform.last_name}}
+										</div>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>email_id</label>
+											   {{playerform.email_id}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>contact_no</label>
+											   {{playerform.contact_no}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>gender</label>
+											   {{playerform.gender}}
+										</div>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>Date Of Birth</label>
+											   {{playerform.date_of_birth}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>sports</label>
+											   {{playerform.sports}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>total_yrs_exp</label>
+											   {{playerform.total_yrs_exp}}
+										</div>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>sec_ques</label>
+											   {{playerform.sec_ques}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Security Answer</label>
+											   {{playerform.sec_ans1}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Academy</label>
+											   {{playerform.acd_reg}}
+										</div>
+									</div>
+									<div class="row form-group">
+										<label> Permanant Address :</label>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 1</label>
+											   {{addressform.street1}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 2</label>
+											   {{addressform.street2}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Zipcode</label>
+											   {{addressform.zipcode}}
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>City</label>
+											   {{addressform.city}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Province</label>
+											   {{addressform.province}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Country</label>
+											   {{addressform.country}}
+										</div>
+									</div>
+															
+							</div>
+							
+					</div>
+				</div>
+			</div>	     
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" id="idClose" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default" id="saveStudBtn"  name="save" data-dismiss="modal">save</button>
+     </div>
+    </form> 
+  </div>
+
+  </div>
+ </div>
+</div>
+
+
+<!-- Main content -->
+<section class="content">
+ <div class="row">
+  <div class="col-xs-12">
+   <div class="box">
+    <div class="box-header">
+     <h3 class="box-title">List of Player</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">{%render_table PlayerList%}</div>
+    <!-- /.box-body -->
+   </div>
+   <!-- /.box -->
+  </div>
+  <!-- /.col -->
+ </div>
+ <!-- /.row -->
+</section>

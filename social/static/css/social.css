@@ -1,0 +1,288 @@
+.sectionHeader {
+    zoom: 1;
+    padding: 10px 0;
+}
+.row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.large-12 {
+    width: 100%;
+}
+.columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+}
+.sectionHeader {
+    zoom: 1;
+    margin-bottom: -12px;
+}
+.sectionTitle {
+    float: left;
+    line-height: 34px;
+	font-weight: 800;
+    font-size: 1.2em;
+    line-height: 1em;
+    color: #283a69;
+}
+.button{
+    display: block;
+    background: #1f7a7a;
+    transition: all .2s linear;
+    text-align: center;
+    line-height: 34px;
+    text-decoration: none;
+    color: #fff;
+    font-size: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 2px;
+    position: relative;
+    padding: 0 80px;
+	text-decoration:none;
+}
+.social-platform .socialBlock.large {
+    width: 61%;
+	margin-left: 88px;
+}
+.social-platform .iplTweets {
+    text-align: center;
+    background-color: #3b579b;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    padding: 0;
+}
+.social-platform .socialBlock {
+    float: left;
+    width: 25%;
+    background-color: #2c3a69;
+    height: 240px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+.social-platform .iplTweets .hashTag {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    padding-top: 20px;
+}
+.social-platform .iplTweets .count {
+    line-height: 1.8em;
+    margin-bottom: 15px;
+}
+.social-platform .iplTweets .count span {
+    color: rba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 3.4em;
+    font-weight: 800;
+}
+.social-platform .large .iplTweets{
+    background-repeat: no-repeat;
+}
+.social-platform .iplTweets .topTeam .logoContainer {
+    display: table-cell;
+    vertical-align: middle;
+}
+.tLogo40x.Mumbai {
+    height: 40px;
+    width: 40px;
+    background-position: 0 -160px;
+    background-repeat: no-repeat;
+	}
+.social-platform .iplTweets .topTeam .topTeamDetails {
+    padding-left: 71px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.social-platform .iplTweets .topTeam .title {
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+.social-platform .iplTweets .topTeam .total span {
+    font-family: 'Open Sans Extra Bold', arial;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-left: 5px;
+}
+.social-platform .iplSelfie {
+    background: #0e1630;
+    transition: all .2s;
+}
+.social-platform .socialBlock {
+    float: left;
+    width: 25%;
+    background-color: #2c3a69;
+    height: 240px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+.social-platform .iplSelfie a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+.social-platform .iplSelfie .title {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.social-platform .iplSelfie .title span {
+    height: 22px;
+    width: 40px;
+    background-position: 0 -2077px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-right: 2px;
+}
+.social-platform .iplSelfie p {
+    font-size: .9em;
+    line-height: 1.3em;
+    text-align: center;
+}
+.social-platform .iplSelfie .selfieImg {
+    width: 170px;
+    height: 85px;
+    margin: 20px auto 0;
+    display: block;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+    transition: all .2s;
+}
+.social-platform .iplSelfie .selfieImg .onhover{
+   -moz-transform:scale(2); 
+-webkit-transform:scale(2);
+-o-transform:scale(2);
+}
+.social-platform .facebook {
+    padding-top: 50px;
+    background-color: #3b5998;
+}
+.social-platform .socialBlock {
+    float: left;
+    width: 25%;
+    background-color: #2fb7b7;
+    height: 240px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+}
+.social-platform .facebook .title {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.1em;
+    padding: 0 20px;
+    text-align: center;
+	margin-left: -74px;
+}
+.social-platform .facebook .button{
+    display: table;
+    margin-bottom: 19px;
+}
+.social-platform .teamBattles {
+    padding-top: 30px;
+    background: #0e1630 url('{% static 'images/test3.jpg' %}') bottom center no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.social-platform .teamBattles .title {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 1.1em;
+    padding: 0 20px;
+}
+.social-platform .teamBattles p {
+    font-size: .9em;
+    line-height: 1.3em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.social-platform .instagram .instaImg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    display: block;
+    transition: all 0.15s linear;
+    z-index: 10;
+}
+.social-platform .instagram .userDetails {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    display: table;
+    z-index: 20;
+}
+.social-platform .instagram .userDetails .avatarContainer {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #000000;
+    position: relative;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 100%;
+}
+.social-platform .instagram .userDetails .user {
+    font-size: .7em;
+    padding-left: 10px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.social-platform .instagram .userDetails .name {
+    color: #000000;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1em;
+}
+.social-platform .instagram .userDetails .handle {
+    color: #0;
+    text-decoration: none;
+    line-height: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

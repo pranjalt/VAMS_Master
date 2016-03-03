@@ -1,0 +1,92 @@
+{%load staticfiles %}
+<!--{%load crispy_forms_tags%} -->
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<div>
+{% csrf_token %}
+	<!-- <div class="custom-textbox">
+	{{Assetform}}
+	</div> -->
+	<div class="assetMgmtForm">
+				<div class="container">
+						
+						<div class="row">
+							<div class="col-xs-4">Vendor</div>
+							<div class="col-xs-6 vendorToGetSports" style="height:30px; border:1px solid ;">{{Assetform.vendor}}</div>
+						</div>
+	
+						
+						<div class="row top-buffer">
+							<div class="col-md-4">Sports</div>
+							<div class="col-md-6 SportsSelect" style="height:30px; border:1px solid ;">{{Assetform.sports}} </div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4">Asset</div>
+							<div class="col-md-6"style="height:30px; border:1px solid ;" >{{Assetform.asset}} </div>
+							
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 ">Maxixmum Available Assets</div>
+							<div class="col-md-6" style="height:30px; border:1px solid ;">{{Assetform.max_quantity}}</div>
+						</div>
+						
+			
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 ">quantity Of Assets you required</div>
+							<div class="col-md-6" style="height:30px; border:1px solid ;">{{Assetform.quantity_left}}</div>
+						</div>
+						
+					
+						<div class="row top-buffer">
+							<div class="col-md-4 ">assign assets to school </div>
+							<div class="col-md-6" style="height:30px; border:1px solid ;">{{Assetform.school}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 ">Issue Date</div>
+							<div class="col-md-6" style="height:30px; border:1px solid ;">{{Assetform.issue_date}}</div>
+						</div>
+			
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 ">Return Date</div>
+							<div class="col-md-6 custom-textbox" style="height:30px; border:1px solid ;">{{Assetform.return_date}}</div>
+						</div>
+						
+				
+												
+						<div class="row button-row">
+						<button type="submit" name="submit" class="btn btn-primary btn-lg submit-button">Submit</button>
+						<button class="btn btn-danger btn-lg cancel-button">Cancel</button>	 
+						</div>
+				</div>
+		
+	</div>
+</div>
+
+
+<script>
+$(".vendorToGetSports" ).change(function(e) {
+	var vendor_id = $(".vendorToGetSports select").val();
+	
+	$.ajax({
+		  method: "GET",
+		  url: 'http://127.0.0.1:8000/en/getaAssetInfo/' + '?vendor_id='+vendor_id,
+		  data: {},
+		  //url: 'http://127.0.0.1:8000/en/get/asset/info/',
+		  
+		}).done(function( response ) {	
+		var sportOptions = response;	
+		var $el = $(".SportsSelect select");
+		$el.empty(); // remove old options
+		$.each(sportOptions, function(value,key) {
+		  $el.append($("<option></option>")
+			 .attr("value", value).text(key));
+		});
+			
+		});
+});
+
+</script>

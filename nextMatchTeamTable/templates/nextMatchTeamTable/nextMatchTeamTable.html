@@ -1,0 +1,144 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/widget.css' %}" rel="stylesheet">
+    <link href="{% static 'css/color.css' %}" rel="stylesheet">
+    <link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+    <link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+<!-- upper part -->
+<div id="highlighter">
+    <div>
+     <img class="img-responsive" src="{% static 'images/bg-1.jpg' %}">
+     <h1 style="margin-left: 3%;
+    margin-top: -50px;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;">Championships Fixtures & Events</h1>
+    </div>
+</div>
+{% comment %}content{% endcomment %}
+ <div class="kode-pagecontent col-md-8" style="padding-top:1%;padding-left: 5%;">
+<div class="kode-inner-fixer margin-none padding-none">
+    <div class="kode-fixer-counter">
+        <h2 class="thbg-color">Next Match Started In</h2>
+
+        <div id="kodeCountdown"></div>
+    </div>
+    <div class="kode-team-match">
+        <ul>
+            <li><a href="#"><img src="{% static "extra-images/fixer-logo1.png" %}" alt=""></a></li>
+            <li class="home-kode-vs"><a href="#" class="kode-modren-btn thbg-colortwo">vs</a></li>
+            <li><a href="#"><img src="{% static "extra-images/fixer-logo2.png" %}" alt=""></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <span class="kode-subtitle">Cycle Racing, Hockey May 18, 2015 14:30 - 16:00 CAMBRIDGESHIRE-UK</span>
+    </div>
+</div>
+     </div>
+<div class="col-md-4" style="padding-top:1%;padding-right: 5%;">
+
+    <table class="kode-table kode-table-v2">
+        <thead>
+        <tr>
+            <th>Province</th>
+            <th>w</th>
+            <th>d</th>
+            <th>l</th>
+            <th>pts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Gauteng</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Northern Cape</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Eastern Cape</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Western Cape</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Limpopo</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>North West</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Free State</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td>Mpumalanga</td>
+            <td>11</td>
+            <td>02</td>
+            <td>00</td>
+            <td>42</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<!--// Page Content //-->
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.js' %}"></script>
+<script src="{% static 'js/waypoints-min.js' %}"></script>
+<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+<script src="{% static 'js/jquery.accordion.js' %}"></script>
+<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+<script src="{% static 'js/kode_pp.js' %}"></script>
+<script src="{% static 'js/functions.js' %}"></script>
+</body>
+</html>

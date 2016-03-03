@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/players.css' %}">
+<div>
+<table class="kd-table kd-tabletwo" style="margin-top: 1%;    width: 95%;
+    margin: 1% 0% 2% 3%;">
+<thead>
+<tr> <th class="thCustom">Player Id</th>
+	<th class="thCustom">First Name</th>
+	<th class="thCustom">Last Name</th>
+	<th class="thCustom">Gender</th> 
+	<th class="thCustom">Email</th>
+	<th class="thCustom">Contact No</th>
+	<th class="thCustom">DOB</th>
+	<th class="thCustom">Country</th>
+	<th class="thCustom">Province</th>
+	<th class="thCustom">City</th></tr>
+</thead>
+<tbody>
+{% for player in players %}
+
+<tr>
+	<td class="thCustom textDecor">{{player.reg_id}}</td>
+	<td class="thCustom textDecor">{{player.first_name}}</td>
+	<td class="thCustom textDecor">{{player.last_name}}</td>
+	<td class="thCustom textDecor">{{player.gender.gender}}</td>
+	<td class="thCustom textDecor">{{player.email_id}}</td>
+	<td class="thCustom textDecor ">{{player.contact_no}}</td>
+	<td class="thCustom textDecor">{{player.date_of_birth}}</td>
+	<td class="thCustom textDecor">{{player.address.country.country_name}}</td>
+	<td class="thCustom textDecor">{{player.address.province.province_name}}</td>
+	<td class="thCustom textDecor">{{player.address.city.city_name}}</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div>

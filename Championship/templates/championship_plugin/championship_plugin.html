@@ -1,0 +1,296 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Css Files -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/themetypo.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="css/widget.css" rel="stylesheet">
+    <link href="css/color.css" rel="stylesheet">
+    <link href="css/flexslider.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+
+    <link href="css/responsive.css" rel="stylesheet">
+
+</head>
+<body>
+<aside class="kode-pagesidebar col-md-9" style="padding-top: 9%;padding-right: 7%;float: right;width:100% !important;">
+
+                  <div class="widget tab-widget">
+
+                    <!-- Nav tabs -->
+                    <ul class="widget-tabnav" role="tablist" style="    padding-left: 7%;">
+                      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Live</a></li>
+                      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Result</a></li>
+                      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Fixture</a></li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane active" id="home">
+                        <ul class="match-widget">
+                          <li>
+                            <div class="kode-cell">
+                              <span>Valenciaca <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Madrid <small>1</small></span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="kode-cell">
+                              <span>Bristol City <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Soccer <small>1</small></span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="kode-cell">
+                              <span>Valenciaca <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Madrid <small>1</small></span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="profile">
+                        <ul class="match-widget">
+                          <li>
+                            <div class="kode-cell">
+                              <span>Bristol City <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Soccer <small>1</small></span>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="kode-cell">
+                              <span>Valenciaca <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Madrid <small>1</small></span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div role="tabpanel" class="tab-pane" id="messages">
+                        <ul class="match-widget">
+                          <li>
+                            <div class="kode-cell">
+                              <span>Balenciaca <small>2</small></span>
+                            </div>
+                            <div class="kode-cell">
+                              <span class="kode-vs">vs</span>
+                              <small>(91)</small>
+                            </div>
+                            <div class="kode-cell">
+                              <span>Real Madrid <small>1</small></span>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+                  </aside>
+  <!-- jQuery (necessary for JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.flexslider.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+
+    <script src="js/jquery.countdown.js"></script>
+	<script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap-progressbar.js"></script>
+	<script src="js/jquery.prettyphoto.js"></script>
+	<script src="js/kode_pp.js"></script>
+    <script src="js/functions.js"></script>
+ </body>
+</html>
+{% comment %}
+<div style="margin-left: 13px;">
+	<ul class="nav nav-tabs">
+  <li class="active" style="width:33.33%;"><a data-toggle="tab" href="#home">&nbsp;&nbsp;&nbsp;Live</a></li>
+  <li style="width:33.33%;"><a data-toggle="tab" href="#menu1">Upcoming</a></li>
+  <li style="width:33.33%;"><a data-toggle="tab" href="#menu2">Result's</a></li>
+  
+</ul>
+<!--<img src="{% static 'images/arrowDown.png' %}" style="margin-left: 67px;
+    margin-top: -9px;">-->
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+     <div id="MainMenu" style="margin-top: -2px;">
+  <div class="list-group panel">
+    <a href="#demo3" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">FOOTBALL</a>
+    <div class="collapse" id="demo3">
+      <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1"><b style="color:#2fb7b7">LIVE:</b> 1st League- KwaZulu-Natal v Eastern Cape at Eastern Cape<i class="fa fa-caret-down"></i></a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> 2nd League- Free State v Pietermaritzburg at PTS Stadium</a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> 3rd League-- Kimberley v Cape Town at Cape Town</a>
+    </div>
+    <a href="#demo4" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">CRICKET</a>
+    <div class="collapse" id="demo4">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b>
+    2nd T20I- Gauteng v Johanesburg at Gauteng Stadium
+    </a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> 2nd T20I- Free State v Eastern Cape at ECP</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> 2nd T20I- Mpumalanga v North Cape at Mpumalanga</a>
+    </div>
+	 <!-- <a href="#demo6" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">TENNIS</a>
+    <div class="collapse" id="demo6">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Amanda Coetzer
+Hoopstad, Free State vs Johan Kriek
+Pongola, KwaZulu-Natal</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Kevin Anderson
+Johannesburg vs Wayne Ferreira
+Johannesburg</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Kevin Curren
+Durban vs Cliff Drysdale Nelspruit</a>
+    </div> -->
+	<a href="#demo7" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">HOCKEY</a>
+    <div class="collapse" id="demo7">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Hockey League- Free State v Eastern Cape at ECP</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Hockey League- Kimberley v Cape Town</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Hockey League- Mpumalanga v North Cape at Mpumalanga</a>
+    </div>
+	<a href="#demo8" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">BOXING</a>
+    <div class="collapse" id="demo8">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Arnold Taylor
+Johannesburg vs Baddie Lebanon</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Bongani Mahlangu vs Brain Micthell</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Cassius Baloyi vs Brian Mitchell
+Johannesburg Mpumalanga</a>
+    </div>
+	<a href="#demo9" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">RUGBY</a>
+    <div class="collapse" id="demo9">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Rugby League- Free State v Eastern Cape at ECP</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Rugby League- Gauteng v Cape Town</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE:</b> Rugby League- pumalanga v North Cape</a>
+    </div>
+	<a href="#demo10" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu">BADMINTON</a>
+    <div class="collapse" id="demo10">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE MEN'S SINGLE :</b> Jacob Maliekal vs Jinkan Ifraimu</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE WOMEN'S SINGLE :</b> Kate Foo Kune vs Grace Gabriel</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7">LIVE MEN'S DOUBLE :</b>  Andries Malan/Willem Viljoen vs  Dorian Lance James/Jinkan Ifraimu</a>
+
+    </div>
+  </div>
+</div>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+         <div id="MainMenu1" style="margin-top: -2px;">
+  <div class="list-group panel">
+    <a href="#demo11" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">FOOTBALL</a>
+    <div class="collapse" id="demo11">
+           <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1"> Finals- KwaZulu-Natal v Eastern Cape at Eastern Cape<i class="fa fa-caret-down"></i></a>
+      <a href="javascript:;" class="list-group-item"> Finals- Free State v Pietermaritzburg at PTS Stadium</a>
+      <a href="javascript:;" class="list-group-item"> Finals- Kimberley v Cape Town at Cape Town</a>
+    </div>
+    <a href="#demo12" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">CRICKET</a>
+    <div class="collapse" id="demo12">
+       <a href="" class="list-group-item">
+    1st ODI- Gauteng v Johanesburg 
+    </a>
+      <a href="" class="list-group-item"> 2nd ODI- Free State v Eastern Cape</a>
+      <a href="" class="list-group-item"> 3rd ODI- Mpumalanga v North Cape</a>
+    </div>
+	 <!-- <a href="#demo14" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">TENNIS</a>
+    <div class="collapse" id="demo14">
+      <a href="" class="list-group-item"> No Upcoming Fixtures. Stay Tuned for Latest Upadates </a>
+    </div> -->
+	<a href="#demo15" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">HOCKEY</a>
+    <div class="collapse" id="demo15">
+      <a href="" class="list-group-item"> Women's Under 19 Finals- Free State v Eastern Cape at ECP</a>
+      <a href="" class="list-group-item"> Women's Under 21 Finals- Kimberley v Cape Town</a>
+      <a href="" class="list-group-item"> Women's Under 21 Finals- Mpumalanga v North Cape at Mpumalanga</a>
+    </div>
+	<a href="#demo16" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">BOXING</a>
+    <div class="collapse" id="demo16">
+      <a href="" class="list-group-item"> No Upcoming Fixtures. Stay Tuned for Latest Upadates </a>
+    </div>
+	<a href="#demo17" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">RUGBY</a>
+    <div class="collapse" id="demo17">
+      <a href="" class="list-group-item"> Under 21 Men's Finals- Free State v Eastern Cape at ECP</a>
+      <a href="" class="list-group-item"> Under 18 Boy's Semi Final- Gauteng v Cape Town</a>
+      <a href="" class="list-group-item"> Under 25 Men's Group Stage- mpumalanga v North Cape</a>
+    </div>
+	<a href="#demo18" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu1">BADMINTON</a>
+    <div class="collapse" id="demo18">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> WOMEN'S DOUBLE :</b> Juliette Ah-Wan
+Seychelles Allisen Camille vs Kate Foo Kune
+Mauritius Yeldy Louison</a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> MIX DOUBLE :</b>   Andries Malan/Jennifer Fry vs  Willem Viljoen/Michelle Butler-Emmett</a>
+    </div>
+  </div>
+</div>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <div id="MainMenu2" style="margin-top: -2px;">
+  <div class="list-group panel">
+      <a href="#demo19" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">FOOTBALL</a>
+    <div class="collapse" id="demo19">
+           <a href="#SubMenu1" class="list-group-item" data-toggle="collapse" data-parent="#SubMenu1"><b style="color:#2fb7b7"> KwaZulu-Natal won 3-0 Against Eastern Cape</b><i class="fa fa-caret-down"></i></a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7"> Pietermaritzburg lost 1-2 Against Gauteng</b></a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7"> Kimberley won 1-2 Against Cape Town</b></a>
+    </div>
+    <a href="#demo20" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">CRICKET</a>
+    <div class="collapse" id="demo20">
+       <a href="" class="list-group-item">
+ <b style="color:#2fb7b7"> Gauteng won by 20 runs in the 1st ODI Against Mpumalanga</b>
+    </a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> Gauteng lost by 4 wickets in the 2nd ODI Against North Cape</b></a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> Free State won by 108 runs in the 3rd ODI Against Eastern Cape</b></a>
+    </div>
+	 <!-- <a href="#demo22" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">TENNIS</a>
+    <div class="collapse" id="demo22">
+      <a href="" class="list-group-item"> No Results. Yet Stay Tuned for Latest Upadates </a>
+    </div> -->
+	<a href="#demo23" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">HOCKEY</a>
+    <div class="collapse" id="demo23">
+	<a href="" class="list-group-item"><b style="color:#2fb7b7"> KwaZulu-Natal won 3-0 Against Eastern Cape</b><i class="fa fa-caret-down"></i></a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7"> Pietermaritzburg lost 1-2 Against Gauteng</b></a>
+      <a href="javascript:;" class="list-group-item"><b style="color:#2fb7b7"> Kimberley won 1-2 Against Cape Town</b></a>
+    </div>
+	<a href="#demo24" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">BOXING</a>
+    <div class="collapse" id="demo24">
+      <a href="" class="list-group-item"> No Upcoming Results. Stay Tuned for Latest Upadates </a>
+    </div>
+	<a href="#demo25" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">RUGBY</a>
+    <div class="collapse" id="demo25">
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> Under 21 Men's Finals Free State stunned Eastern Cape with 50-13 margin</b></a>
+      <a href="" class="list-group-item"><b style="color:#2fb7b7"> Under 18 Boy's Finals Gauteng defeated Cape Town by 30-25</b></a>
+    </div>
+	<a href="#demo26" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#MainMenu2">BADMINTON</a>
+    <div class="collapse" id="demo26">
+      <a href="" class="list-group-item"> No Results Yet. Stay Tuned for Latest Upadates </a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+
+
+</div>{% endcomment %}

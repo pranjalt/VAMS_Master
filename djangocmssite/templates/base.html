@@ -1,0 +1,154 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Virtual Sports Academy</title>
+
+    <!-- Css Files -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/widget.css' %}" rel="stylesheet">
+    <link href="{% static 'css/color.css' %}" rel="stylesheet">
+    <link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+    <link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+
+    <![endif]-->
+    {% render_block "css" %}
+</head>
+<body>
+<!--// Wrapper //-->
+<div class="kode-wrapper">
+{% cms_toolbar %}
+
+
+<!-- <div class="season-countdown">
+<div class="container" style="background-color:#2fb7b7;;width:100%;">
+<div class="countdown">
+<h4 class="topHeader">The Official website of virtual Sports Academy</h4>
+<img src="{% static 'images/notifications.png' %}" style="float:right;margin-top: 1px;
+    padding: 8px;">
+<img src="{% static 'images/male_user.png' %}" style="float:right;margin-top: 2px;">
+<h6>Welcome admin &nbsp;</h6>
+</div>
+</div>
+</div> -->
+<header id="mainheader" class="kode-header-absolute">
+
+    <!--// TopBaar //-->
+    <div class="kode-topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 kode_bg_white">
+                    <ul class="top_slider_bxslider">
+                        <li><span class="kode-barinfo">The official website of Virtual Sports Academy</span></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="kode-userinfo">
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i>
+                            Login</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#myModalTwo"><i class="fa fa-user-plus"></i>
+                            Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// TopBaar //-->
+
+    <div class="header-8" style="    padding-left: 3%;
+    padding-right: 3%;">
+        <div class="container">
+            <!--LOGO START-->
+            <div class="logo">
+                <a href="/home" class="logo"><img src="{% static "images/logo.png" %}" alt=""></a>
+            </div>
+            <!--LOGO END-->
+            <!--NAVIGATION START-->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="kode-navigation pull-left">
+                <ul>
+                    {% show_menu 0 1 100 100 "menu.html" %}
+                </ul>
+            </div>
+            <!--NAVIGATION END-->
+
+            <nav class="navbar navbar-default">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        {% show_menu 0 1 100 100 "menu.html" %}
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+            </nav>
+
+        </div>
+    </div>
+</header>
+{% static_placeholder 'banner' %}
+{% block content %}{% endblock content %}
+{% static_placeholder 'footer' %}
+{% static_placeholder 'lowerfooter' %}
+
+</div>
+<!-- jQuery (necessary for JavaScript plugins) -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.js' %}"></script>
+<script src="{% static 'js/waypoints-min.js' %}"></script>
+{% comment %}<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>{% endcomment %}
+<script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+<script src="{% static 'js/jquery.accordion.js' %}"></script>
+<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+<script src="{% static 'js/kode_pp.js' %}"></script>
+<script src="{% static 'js/functions.js' %}"></script>
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+{% render_block "js" %}
+</body>
+</html>

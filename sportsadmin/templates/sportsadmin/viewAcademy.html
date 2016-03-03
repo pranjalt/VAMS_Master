@@ -1,0 +1,130 @@
+{% load table_tags %}
+	{% load staticfiles %}
+<link href="{% static 'sportsadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<script src="{% static 'sportsadmin/js/jquery-2.1.4.min.js' %}"></script> 
+<script src="{% static 'sportsadmin/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'sportsadmin/js/commonUtils.js' %}"></script>
+
+        
+
+<style type="text/css">
+
+ .modal.modal-wide .modal-dialog {
+  width: 80%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+</style>
+<script>
+$('#saveStudBtn').on("click" , function(){
+
+
+// catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $('#Academy').serialize(), // get the form data
+                type: $('#Academy').attr('method'), // GET or POST
+                url: $('#Academy').attr('action'), // the file to call
+                success: function(response) { // on success..
+                    // update the DIV
+                },
+				error: function(response){
+				console.log(response);
+				}
+            });	
+});
+</script>
+
+<section class="content">
+
+    <form role="form"  id="Academy" method="POST" action="{% url 'editAcademy' %}">
+    <input type="hidden" name="action_type" id="action_type" value="edit"/>
+    
+	{{Academyform.acd_reg}} {{Academyform.address}}
+    {% csrf_token %} 
+    
+     <!-- {{ AddressFormSet.management_form }} -->
+     <!-- text input -->
+     <div id="loadForm">
+	     <div class="container">
+				<div class="col-lg-12">
+					<div class="row">
+							
+								<div class="col-sm-12">
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Name</label>
+											   {{Academyform.name}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Establishment Date</label>
+											   {{Academyform.estd}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Email Id</label>
+											   {{Academyform.email_id}}
+										</div>
+										
+									</div>
+									
+									<div class="row">
+									<div class="col-sm-3 form-group">
+											  <label>Contact No</label>
+											   {{Academyform.contact_no}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Website</label>
+											   {{Academyform.website}}		   								
+										</div>
+										
+									</div>
+									
+									
+									
+									
+									<div class="row form-group">
+										<label>  Address :</label>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 1</label>
+											   {{addressform.street1}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 2</label>
+											   {{addressform.street2}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Zipcode</label>
+											   {{addressform.zipcode}}
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>City</label>
+											   {{addressform.city}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Province</label>
+											   {{addressform.province}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Country</label>
+											   {{addressform.country}}
+										</div>
+									</div>
+															
+							</div>
+							
+					</div>
+				</div>
+			</div>	     
+     </div>
+     <div class="modal-footer">
+      
+      <button type="button" class="btn btn-default" id="saveStudBtn"  name="save" data-dismiss="modal">Edit</button>
+    </form> 
+  
+</section>

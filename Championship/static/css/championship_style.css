@@ -1,0 +1,65 @@
+.nav-tabs {
+    border-bottom: 0px solid #ddd;
+}
+.nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 2.428571;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+	border-bottom: 2px solid #c8d2ea;
+	font-size:12px;
+
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 40px;
+	background-color: #90a2d5;
+	font-size:12px;
+
+}
+a {
+    color: #3a5795;
+    text-decoration: none;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    background-color: #c8d2ea;
+	font-size:12px;
+
+	color: #3a5795}
+	
+	
+	.nav-tabs>li>a:hover {
+    /* border-color: #eee #eee #ddd; */
+}
+.nav>li>a:hover {
+    text-decoration: none;
+    /* background-color: #eee; */
+	font-size:12px;
+}
+a.list-group-item-success {
+    color: #3a5795;
+	background-color: #c8d2ea;
+	font-size:12px;
+}
+a.list-group-item-success:focus, a.list-group-item-success:hover {
+    color: #3a5795;
+    background-color: #91a6d4;
+	font-size:12px;
+	}
+a.list-group-item {
+    color: #3a5795;
+	font-size:12px;
+}
+a.list-group-item-success:hover {
+    background-color: #b6c4e2;
+	font-size:12px;
+}
+.panel>a{
+font-size:12px;
+}

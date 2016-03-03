@@ -1,0 +1,344 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+	<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+	<link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/widget.css' %}" rel="stylesheet">
+	<link href="{% static 'css/color.css' %}" rel="stylesheet">
+	<link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+	<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+	<link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+	<link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  {% comment %} <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+  width:auto;
+  margin :0 auto;
+  }
+  </style>
+  <script>
+  $(function() {
+      $('#myCarousel').on('slide.bs.carousel', function () {
+	
+			//$('#popup-youtube-player').stopVideo();
+		$('#0')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');   
+		$('#1')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');   
+		$('#2')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*'); 
+		$('#3')[0].contentWindow.postMessage('{"event":"command","func":"' + 'stopVideo' + '","args":""}', '*');  
+ 
+      });
+   });
+  </script>{% endcomment %}
+  </head>
+<body>
+<div id="highlighter">
+    <div>
+     <img class="img-responsive" src="{% static 'images/bg-1.jpg' %}">
+     <h1 style="margin-left: 3%;
+    margin-top: -50px;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;">Our Gallery</h1>
+    </div>
+</div>
+
+{% comment %}video carousel{% endcomment %}
+{% comment %}<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			{% for object in videos %}
+				<li {% if forloop.first %}class=active{% else %} class="" {% endif %} data-target=#myCarousel data-slide-to="{{ forloop.counter0 }}"></li>
+			{% endfor %}
+		</ol>
+		
+		<div class="carousel-inner" align="center" role="listbox" >
+					
+			{% for video in videos %}		
+			<div class="item {% if forloop.first %} active{% endif %}">
+			   <iframe id="{{ forloop.counter0 }}" width="{{video.get_width}}" height="{{video.get_height}}" src="{{video.movie_url}}" frameborder="0" allowscriptaccess="always" allowfullscreen="true">
+			   </iframe>
+			</div>
+			{% endfor %}
+			
+			<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="margin-left:11pc" >
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="margin-right:11pc">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+			</a>		
+	    </div>
+	</div>{% endcomment %}
+
+<!--// Main Banner //-->
+      <div id="mainbanner">
+        <div class="flexslider">
+          <ul class="slides">
+            <li>
+              <iframe src="https://player.vimeo.com/video/90312869" width="100%" height="440" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+            </li>
+            <li>
+             <iframe src="https://player.vimeo.com/video/112064120?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="440" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+            </li>
+            <li>
+            <iframe src="https://player.vimeo.com/video/65743181?title=0&portrait=0" width="100%" height="440" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+            </li>
+           {% comment %}
+              <li>
+              <img src="{% static "extra-images/marathon.jpg" %}" alt="" class="headerImg"/>
+
+            </li>
+			<li>
+              <img src="{% static "extra-images/Archery.jpg" %}" alt="" class="headerImg"/>
+            </li>{% endcomment %}
+          </ul>
+        </div>
+      </div>
+
+{% comment %}video gallery{% endcomment %}{% comment %}
+<div>
+<div style="background-color:#195D10;margin-bottom: 10px;margin-top: 6px;">
+<h3 style="color: #fff;font-family: montserratbold;
+    text-transform: uppercase;
+    vertical-align: bottom;
+
+    display: table-cell;padding: 14px;">VIDEO GALLERY</h3>
+</div>
+</div>
+<div class="post-list" style="margin-bottom:25%">
+       
+                                    <div class="post-item list-type-video" style="width:20%;margin-left: 186px;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/mqdefault.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/vid-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>15 August 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>South African Currie Cup 2015: Round 2 - Sharks vs Eastern Province Kings</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+								
+                                     <div class="post-item list-type-video"style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/gymnastic.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/vid-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>25 August 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>Gymnaestrada 2015- South African National Evening - We are Gymnastics!</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+									 <div class="post-item list-type-video" style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/Karate.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/vid-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>01 November 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>South Africa vs Congo Male Team Kumite Competition</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+									 <div class="post-item list-type-video" style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/hockey.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/vid-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>5th September 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>SA Mens Hockey IPT Final 2015 Western Province vs Southern Gauteng</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+                        
+                    </div>
+					
+					 <input type="submit" value="LOAD MORE +" style="color: #000000;
+    padding: 12px 45px;
+    text-transform: uppercase;
+    outline: none;
+    box-shadow: beige;
+    border: 1px solid #1f7a7a;
+    border-radius: 5px;
+    font-family: BentonSansMedium, Arial, sans-serif;
+    background-color: #2fb7b7;
+    cursor: pointer;margin-left: 45%;" />
+	<div style="background-color:#2fb7b7;margin-bottom: 10px;
+    margin-top: 6px;">
+	<h3 style="color: #fff;font-family: montserratbold;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    padding-bottom: 15px;
+    display: table-cell;padding: 48px;">PHOTOS GALLERY</h3>
+	</div>
+	<div class="post-list" style="margin-bottom:25%">
+       
+                                    <div class="post-item list-type-video" style="width:20%;margin-left: 186px;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/golf.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/photo-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>10 August 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a> Inaugural Varsity Athletics series 2013 with meets held at University of Stellenbosch.</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+								
+                                     <div class="post-item list-type-video"style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/penta.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/photo-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>14 November 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>Hilton Langenhoven | Albino Paralympic Star on Trans World Sport</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+									 <div class="post-item list-type-video" style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/swim.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/photo-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>29 January 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>Michael Andrew tests South African Swimming: Gold Medal</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+									 <div class="post-item list-type-video" style="width:20%;">
+                                        <div class="post-thumbnail">
+                                            <a href="">
+                                                <img src="{% static 'images/rugbyanthem.jpg' %}">
+                                            </a>
+                                            <span class="type-icon" style="background-image: url('{% static 'images/photo-icon.png' %}');"></span>
+                                            <span class="type-icon2"></span>
+
+                                        </div>
+                                        <div class="post-content">
+                                            <p class="post-meta">
+                                                <time>22 October 2015</time>
+                                            </p>
+
+                                            <h3 class="post-title">
+                                                <a>Darren from 947 are proud supporters of the Gauteng Lions Rugby team.</a>
+                                            </h3>
+
+                                        </div>
+
+                                    </div>
+                        
+                    </div>
+					 <input type="submit" value="LOAD MORE +" style="color: #000000;
+    padding: 12px 45px;
+    text-transform: uppercase;
+    outline: none;
+    box-shadow: beige;
+    border: 1px solid #1f7a7a;
+    border-radius: 5px;
+    font-family: BentonSansMedium, Arial, sans-serif;
+    background-color: #2fb7b7;
+    cursor: pointer;margin-left: 45%;margin-bottom: 1%;" />{% endcomment %}
+<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.countdown.js' %}"></script>
+	<script src="{% static 'js/waypoints-min.js' %}"></script>
+	<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+	<script src="{% static 'js/jquery.accordion.js' %}"></script>
+	<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+	<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+	<script src="{% static 'js/kode_pp.js' %}"></script>
+	<script src="{% static 'js/functions.js' %}"></script>
+				
+</body>

@@ -1,0 +1,356 @@
+	{% load table_tags %}
+	{% load staticfiles %}
+<link href="{% static 'sportsadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<script src="{% static 'sportsadmin/js/jquery-2.1.4.min.js' %}"></script> 
+<script src="{% static 'sportsadmin/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'sportsadmin/js/commonUtils.js' %}"></script>
+
+        
+
+<style type="text/css">
+
+ .modal.modal-wide .modal-dialog {
+  width: 80%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	
+ 	
+	$(".fa-trash-o").on("click", function() {
+		
+		videoId = $(this).closest('tr').find('td:eq(0)').html();
+		$("#yesDelVideo").on("click", function(){
+		  
+			var url = '/deleteVideo/'+'?videoId='+videoId;
+		 	$.ajax({
+				url : url,
+				type : "GET",
+				dataType : {},}) 
+			    .done(function(data) {
+			    	console.log("after delete");
+			    	
+			});
+		});
+	  });
+	  
+	  $('.fa-edit').on("click",function(){
+		console.log("hit edit");
+		$('#addVideoModal').modal('show'); 
+		videoId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewVideo/'+'?videoId='+videoId;
+		VideoViewEdit(url);
+		$('#action_type').val("edit");
+		
+	});
+	 
+	 $(".fa-file-text").on("click", function() {
+		
+		$('#addVideoModal').modal('show'); 	
+		videoId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewVideo/'+'?videoId='+videoId;
+		VideoViewEdit(url);
+		viewOnlyAccess();
+		
+	});
+	
+
+	  
+	  $('#addVideoModal').on('hidden.bs.modal', function () {
+		   tab_handler('Video');
+	});
+	  
+	  $('#deleteVideoModal').on('hidden.bs.modal', function () {
+		   tab_handler('Video');
+	});
+	  
+	  
+	  
+	  
+	  
+	
+});
+
+
+function viewOnlyAccess()
+{
+	
+	$('#id_movie_url').prop("disabled", true);
+	
+	$('#id_width').prop("disabled", true);
+	$('#id_height').prop("disabled", true);
+	$('#id_auto_play').prop("disabled", true);
+	$('#id_auto_hide').prop("disabled", true);
+	$('#id_fullscreen').prop("disabled", true);
+	$('#id_loop').prop("disabled", true);
+	$('#id_bgcolor').prop("disabled", true);
+	$('#id_textcolor').prop("disabled", true);
+	$('#id_seekbarcolor').prop("disabled", true);
+	$('#id_seekbarbgcolor').prop("disabled", true);
+	$('#id_loadingbarcolor').prop("disabled", true);
+	$('#id_buttonoutcolor').prop("disabled", true);
+	$('#id_sports').prop("disabled", true);
+	$('#id_buttonovercolor').prop("disabled", true);
+	$('#id_buttonhighlightcolor').prop("disabled", true);
+	$('#id_sports_subtype').prop("disabled", true);
+}
+
+function VideoViewEdit(url)
+{
+	alert("VideoViewEdit",url);
+	$
+	.ajax({
+		url : url,
+		type : "GET",
+		dataType : 'json',})
+		.done(function(data) {
+				    console.log(data.video.video_id);
+	          		$('#video_id').val(data.video.video_id);   	
+       				
+	          		$('#id_movie_url').val(data.video.movie_url);	          		
+	          		       		
+	          		$('#id_width').val(data.video.width);	          		
+	          		$('#id_height').val(data.video.height);	          		
+	          		$('#id_auto_play').val(data.video.auto_play);	          		
+	          		$('#id_auto_hide').val(data.video.auto_hide);	          		
+	          		$('#id_fullscreen').val(data.video.fullscreen);	          			          		
+	          		          			          		
+	          		/* Player Address */
+                   				
+	          		$('#id_loop').val(data.video.loop);	          			          		
+	          		$('#id_bgcolor').val(data.video.bgcolor);	          			          		
+	          		$('#id_textcolor').val(data.video.textcolor);	          			          		
+	          		$('#id_seekbarcolor').val(data.video.seekbarcolor);	          			          		
+	          		$('#id_seekbarbgcolor').val(data.video.seekbarbgcolor);	          			          		
+	          		$('#id_loadingbarcolor').val(data.video.loadingbarcolor);	          			          		
+	                $('#id_buttonoutcolor').val(data.video.buttonoutcolor);	          			          		
+	          		$('#id_buttonovercolor').val(data.video.buttonovercolor);	          			          		
+	          		$('#id_buttonhighlightcolor').val(data.video.buttonhighlightcolor);	          			          		
+	          		
+	          		$('#id_sports').append('<option selected=selected value=' + data.sports.sports_id + '>'+data.sports.sports_name+'</option>');
+	          		$('#id_sports_subtype').append('<option selected=selected value=' + data.sports_subtype.subtype_id + '>'+data.sports_subtype.sports_subtype+'</option>');
+								
+	
+		});
+	
+}
+$('#saveStudBtn').on("click" , function(){
+
+console.log("In buttonClick funtion");
+ console.log('ajax call');// catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $('#Video').serialize(), // get the form data
+                type: "POST", // GET or POST
+                url: $('#Video').attr('action'), // the file to call
+                success: function(response) { // on success..
+                    console.log("success"); // update the DIV
+                },
+				error: function(response){
+				console.log(response);
+				}
+            });	
+});
+
+
+
+</script>
+<div class="col-md-3 col-sm-6 col-xs-12" style="float: right;width:30%"
+ data-toggle="modal" data-target="#addVideoModal">
+ <div class="info-box">
+  <span class="info-box-icon bg-green"><i
+   class="fa fa-plus-circle"></i></span>
+		
+  <div class="info-box-content" id="addVideo" style="padding: 34px 58px; margin-left: 70px;width: 100%;">
+   <span class="info-box-text">Add Video</span>
+  </div>
+  <!-- /.info-box-content -->
+ </div>
+ <!-- /.info-box -->
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteVideoModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Are you sure you want
+					to Delete the Video ?</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="yesDelVideo"
+						data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-primary" id="noDelVideo" name="no"
+						data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Add School Modal -->
+<div class="modal fade modal-wide" id="addVideoModal" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+     aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Add New Video</h4>
+   </div>
+   <div class="modal-body">
+    
+    <form role="form"  id="Video" method="POST" action="{% url 'addVideo' %}">
+    <input type="hidden" name="action_type" id="action_type" value="add"/>
+    <input type="hidden" name="video_id" id="video_id" value=""/>
+   
+    {% csrf_token %} 
+    
+     <!-- {{ AddressFormSet.management_form }} -->
+     <!-- text input -->
+     <div id="loadForm">
+	     <div class="container">
+				<div class="col-lg-12">
+					<div class="row">
+							
+								
+									
+									<div class="row form-group">
+										<label> Video Details :</label>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>Movie Url</label>
+											   {{videoform.movie_url}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Width</label>
+											   {{videoform.width}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Height</label>
+											   {{videoform.height}}
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Auto Play</label>
+											   {{videoform.auto_play}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Auto Hide</label>
+											   {{videoform.auto_hide}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Fullscreen</label>
+											   {{videoform.fullscreen}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Loop</label>
+											   {{videoform.loop}}
+										</div>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>Bgcolor</label>
+											   {{videoform.bgcolor}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Textcolor</label>
+											   {{videoform.textcolor}}
+										</div>
+                                        <div class="col-sm-3 form-group">
+											  <label>SeekbarColor</label>
+											   {{videoform.seekbarcolor}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Seekbarbgcolor</label>
+											   {{videoform.seekbarbgcolor}}
+										</div>
+									</div>
+									
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>Loadingbarcolor</label>
+											   {{videoform.loadingbarcolor}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Buttonoutcolor</label>
+											   {{videoform.buttonoutcolor}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Buttonovercolor</label>
+											   {{videoform.buttonovercolor}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Buttonhighlightcolor</label>
+											   {{videoform.buttonhighlightcolor}}
+										</div>
+									</div>
+									
+									
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>Sports</label>
+											   {{videoform.sports}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Sports Subtype</label>
+											   {{videoform.sports_subtype}}
+										</div>
+									</div>
+															
+							</div>
+							
+					</div>
+				</div>
+			</div>	     
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" id="idClose" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default" id="saveStudBtn"  name="save" data-dismiss="modal">save</button>
+     </div>
+    </form> 
+  </div>
+
+  </div>
+ </div>
+</div>
+
+
+<!-- Main content -->
+<section class="content">
+ <div class="row">
+  <div class="col-xs-12">
+   <div class="box">
+    <div class="box-header">
+     <h3 class="box-title">List of Video</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">{%render_table VideoList%}</div>
+    <!-- /.box-body -->
+   </div>
+   <!-- /.box -->
+  </div>
+  <!-- /.col -->
+ </div>
+ <!-- /.row -->
+</section>

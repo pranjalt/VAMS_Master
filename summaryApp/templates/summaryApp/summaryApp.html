@@ -1,0 +1,180 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+		<link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+		<link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/widget.css' %}" rel="stylesheet">
+		<link href="{% static 'css/color.css' %}" rel="stylesheet">
+		<link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+		<link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body>
+
+ <!--// Page Content //-->
+        <section class="kode-pagesection margin-bottom-40">
+          <div class="container">
+            <div class="row">
+				<div class="col-md-12">
+					<div class="heading heading-12 margin-top30-bottom10">
+						<h2><span class="left"></span>Summary<span class="right"></span></h2>
+					</div>
+				</div>
+                <div class="col-md-8">
+
+                  <table class="kode-table">
+                    <thead>
+                      <tr>
+                        <th style="text-align: center;">Game</th>
+                        <th>Upcoming Match</th>
+                        <th>Date</th>
+                        <th>Venue</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                       <tr>
+                           <td>Rugby</td>
+                        <td>South Africa <span style="font-size: 15px;">VS</span>Kenya</td>
+                        <td>07/08/2016  14:30 - 16:00</td>
+                        <td>Kings Park Stadium</td>
+                      </tr>
+                      <tr>
+                          <td>Netball</td>
+                        <td>India <span style="font-size: 15px;">VS</span>South Africa</td>
+                        <td>08/08/2016  14:30 - 16:00</td>
+                        <td>Durban Exhibition Centre</td>
+                      </tr>
+                      <tr>
+                          <td>Hockey</td>
+                        <td>China <span style="font-size: 15px;">VS</span>Russia</td>
+                        <td>09/08/2016  14:30 - 16:00</td>
+                        <td>Queensmead Hockey Stadium</td>
+                      </tr>
+                      <tr>
+                          <td>Beach Volleyball</td>
+                        <td>Australia <span style="font-size: 15px;">VS</span>India</td>
+                        <td>10/08/2016  14:30 - 16:00</td>
+                        <td>Durban New Beach</td>
+                      </tr>
+                      <tr>
+                          <td>Badminton</td>
+                        <td>India <span style="font-size: 15px;">VS</span>China</td>
+                        <td>11/08/2016  14:30 - 16:00</td>
+                        <td>Durban International Convention Centre</td>
+                      </tr>
+                     <tr>
+                        <td>Soccer</td>
+                        <td>Brazil<span style="font-size: 15px;">VS</span>Argentina</td>
+                        <td>06/08/2016  14:30 - 16:00</td>
+                        <td>Wembley Stadium</td>
+                      </tr>
+                    </tbody>
+                 </table>
+
+                </div>
+
+                <div class="col-md-4">
+
+                  <table class="kode-table kode-table-v2">
+                    <thead>
+                      <tr>
+                        <th>Province</th>
+                        <th>w</th>
+                        <th>d</th>
+                        <th>l</th>
+                        <th>pts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Gauteng</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                       <tr>
+                        <td>Northern Cape</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>Eastern Cape</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>Western Cape</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>Limpopo</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                       <tr>
+                        <td>North West</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>Free State</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                      <tr>
+                        <td>Mpumalanga</td>
+                        <td>11</td>
+                        <td>02</td>
+                        <td>00</td>
+                        <td>42</td>
+                      </tr>
+                    </tbody>
+                 </table>
+
+                </div>
+              </div>
+            </div>
+        </section>
+        <!--// Page Content //-->
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/jquery.countdown.js' %}"></script>
+		<script src="{% static 'js/waypoints-min.js' %}"></script>
+		<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+		<script src="{% static 'js/jquery.accordion.js' %}"></script>
+		<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+		<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+		<script src="{% static 'js/kode_pp.js' %}"></script>
+		<script src="{% static 'js/functions.js' %}"></script>
+</body>
+</html>

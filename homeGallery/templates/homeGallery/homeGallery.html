@@ -1,0 +1,114 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+		<link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+		<link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/widget.css' %}" rel="stylesheet">
+		<link href="{% static 'css/color.css' %}" rel="stylesheet">
+		<link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+		<link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <style>
+
+ .li-col-container:hover .image1 {
+-webkit-transform:scale(1.3);
+transform:scale(1.3);
+}
+.li-col-container {
+overflow:hidden;
+width:80%;
+height:auto;
+padding-top: 9px;
+}
+.image1 {
+-webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+}
+</style>
+</head>
+<body>
+
+  <!--// Page Content //-->
+		<section class="kode-pagesection kode-matches-gallery" style="padding-left: 5%;padding-right: 5%;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="heading heading-12 margin-bottom-50">
+							<h2 class="color-black"><span class="left"></span>Our Matches Gallery<span class="right"></span></h2>
+						</div>
+					</div>
+					 <div class="kode-pagecontent col-md-12">
+
+                  <div class="kode-gallery kode-gallery-pretty">
+                    <ul class="row">
+                      <li class="col-md-4">
+                         <div class="li-col-container"><a href="#"><img class="image1" src="{% static "extra-images/mqdefault.jpg" %}" alt=""></a>
+                          {% comment %}<figcaption><a data-gal="prettyphoto" href="extra-images/mqdefault.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+                        </div>
+
+                      </li>
+                      <li class="col-md-4">
+                        <div class="li-col-container"><a href="#"><img class="image1" src="{% static "extra-images/Karate.jpg" %}" alt=""></a>
+                         {% comment %} <figcaption><a data-gal="prettyphoto" href="extra-images/Karate.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+                        </div>
+
+                      </li>
+                      <li class="col-md-4">
+                         <div class="li-col-container"><a href="#"><img class="image1" src="{% static "extra-images/gymnastic.jpg" %}" alt=""></a>
+                         {% comment %} <figcaption><a data-gal="prettyphoto" href="extra-images/gymnastic.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+
+                        </div>
+
+                      </li>
+                      <li class="col-md-4">
+                         <div class="li-col-container"><a href="#"><img class="image1" src="{% static "extra-images/golf.jpg" %}" alt=""></a>
+                          {% comment %}<figcaption><a data-gal="prettyphoto" href="extra-images/golf.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+                        </div>
+
+                      </li>
+                      <li class="col-md-4">
+                         <div class="li-col-container"><a href="#"><img class="image1" src="{% static "extra-images/swim.jpg" %}" alt=""></a>
+                         {% comment %} <figcaption><a data-gal="prettyphoto" href="extra-images/swim.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+                        </div>
+
+                      </li>
+                      <li class="col-md-4">
+                         <div class="li-col-container"><a data-ral="" href="#"><img class="image1" src="{% static "extra-images/penta.jpg" %}" alt=""></a>
+                          {% comment %}<figcaption><a data-gal="prettyphoto" href="extra-images/penta.jpg" class="kode-gallery-hover thbg-color"><i class="fa fa-plus"></i></a></figcaption>{% endcomment %}
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+				<div class="kode-align-btn"><a class="kode-modren-btn thbg-colortwo" href="#">View More</a></div>
+				</div>
+			</div>
+		</section>
+        <!--// Page Content //-->
+
+<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/jquery.countdown.js' %}"></script>
+		<script src="{% static 'js/waypoints-min.js' %}"></script>
+		<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+		<script src="{% static 'js/jquery.accordion.js' %}"></script>
+		<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+		<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+		<script src="{% static 'js/kode_pp.js' %}"></script>
+		<script src="{% static 'js/functions.js' %}"></script>
+</body>
+</html>

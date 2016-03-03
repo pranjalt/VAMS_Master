@@ -1,0 +1,284 @@
+from django.db import models
+from django.contrib.auth.models import User
+from cms.models.pluginmodel import CMSPlugin
+from cms.models import CMSPlugin
+
+		
+class AcademyOnboarding(models.Model):
+    acd_reg_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50, blank=True, null=True)
+    estd = models.DateField(blank=True, null=True)
+    address = models.ForeignKey('Address', db_column='address', blank=True, null=True)
+    website = models.CharField(max_length=50, blank=True, null=True)
+    contact_no = models.BigIntegerField(blank=True, null=True)
+    email_id = models.CharField(max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'academy_onboarding'
+    def __unicode__(self):
+		return unicode(self.name)
+
+class AcademySports(models.Model):
+    acd_reg_id = models.ForeignKey(AcademyOnboarding)
+    sports_id = models.ForeignKey('Sports')
+
+    class Meta:
+        managed = True
+        db_table = 'academy_sports'
+        unique_together = (('acd_reg_id', 'sports_id'),)
+
+
+class Address(models.Model):
+    address_id = models.AutoField(primary_key=True)
+    country = models.ForeignKey('Country', db_column='country', blank=True, null=True)
+    province = models.ForeignKey('Province', db_column='province', blank=True, null=True)
+    city = models.ForeignKey('City', db_column='city', blank=True, null=True)
+    street1 = models.CharField(max_length=30, blank=True, null=True)
+    street2 = models.CharField(max_length=30, blank=True, null=True)
+    zipcode = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'address'
+
+class City(models.Model):
+    city_id = models.AutoField(primary_key=True)
+    city_name = models.CharField(max_length=20, blank=True, null=True)
+    country = models.ForeignKey('Country', db_column='country', blank=True, null=True)
+    
+    def __str__(self):
+        return self.city_name
+
+
+    class Meta:
+        managed = True
+        db_table = 'city'
+
+
+class Country(models.Model):
+    country_id = models.IntegerField(primary_key=True)
+    country_name = models.CharField(max_length=20, blank=True, null=True)
+    
+    def __str__(self):
+        return self.country_name
+
+    class Meta:
+        managed = True
+        db_table = 'country'
+
+
+class Gender(models.Model):
+    gender_id = models.AutoField(primary_key=True)
+    gender = models.CharField(max_length=1, blank=True, null=True)
+    
+    def __str__(self):
+        return self.gender
+
+    class Meta:
+        managed = True
+        db_table = 'gender'
+
+
+class Level(models.Model):
+    level_id = models.AutoField(primary_key=True)
+    level = models.CharField(max_length=20, blank=True, null=True)
+
+    def __str__(self):
+        return self.level 
+    
+    class Meta:
+        managed = True
+        db_table = 'level'
+
+
+class Onboarding(models.Model):
+    reg_id = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=50, blank=True, null=True)
+    middle_name = models.CharField(max_length=50, blank=True, null=True)
+    last_name = models.CharField(max_length=50, blank=True, null=True)
+    gender = models.ForeignKey(Gender, db_column='gender', blank=True, null=True)
+    email_id = models.CharField(max_length=100, blank=True, null=True)
+    contact_no = models.BigIntegerField(blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    sports = models.ForeignKey('Sports', db_column='sports', blank=True, null=True)
+    total_yrs_exp = models.IntegerField(blank=True, null=True)
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques1', blank=True, null=True)
+    sec_ans1 = models.CharField(max_length=100, blank=True, null=True)
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques2', blank=True, null=True)
+    sec_ans2 = models.CharField(max_length=100, blank=True, null=True)
+    address = models.ForeignKey(Address, db_column='address', blank=True, null=True)
+    role = models.ForeignKey('Role', db_column='role', blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'onboarding'
+
+class CoachOnboarding(models.Model):
+    coach_id = models.IntegerField(primary_key=True)
+    first_name = models.CharField(max_length=50, blank=True)
+    middle_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
+    gender = models.ForeignKey('Gender', db_column='gender', blank=True, null=True)
+    email_id = models.CharField(max_length=100, blank=True)
+    contact_no = models.BigIntegerField(blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    sports = models.ForeignKey('Sports', db_column='sports', blank=True, null=True)
+    total_yrs_exp = models.IntegerField(blank=True, null=True)
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques1', blank=True, null=True)  
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques2', blank=True, null=True)
+    sec_ans1 = models.CharField(max_length=100, blank=True)
+    sec_ans2 = models.CharField(max_length=100, blank=True)
+    address = models.ForeignKey(Address, db_column='address', blank=True, null=True)
+    role = models.ForeignKey('Role', db_column='role',default='2', blank=True, null=True)
+    acd_reg=models.ForeignKey('AcademyOnboarding',db_column='acd_reg',blank=True,null=False)
+    class Meta:
+        managed = False
+        db_table = 'coach_onboarding'
+        
+class PlayerOnboarding(models.Model):
+    player_id = models.IntegerField(primary_key=True)
+    first_name = models.CharField(max_length=50, blank=True)
+    middle_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
+    gender = models.ForeignKey(Gender, db_column='gender', blank=True, null=True)
+    email_id = models.CharField(max_length=100, blank=True)
+    contact_no = models.BigIntegerField(blank=True, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    sports = models.ForeignKey('Sports', db_column='sports', blank=True, null=True)
+    total_yrs_exp = models.IntegerField(blank=True, null=True)
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques1', blank=True, null=True)  
+    sec_ques = models.ForeignKey('SecurityQuestions', db_column='sec_ques2', blank=True, null=True)
+    sec_ans1 = models.CharField(max_length=100, blank=True)
+    sec_ans2 = models.CharField(max_length=100, blank=True)
+    address = models.ForeignKey(Address, db_column='address', blank=True, null=True)
+    role = models.ForeignKey('Role', db_column='role', default='1', blank=True, null=True)
+    acd_reg=models.ForeignKey('AcademyOnboarding',db_column='acd_reg',blank=True,null=False)
+
+    class Meta:
+        managed = False
+        db_table = 'player_onboarding'
+        		
+	      
+class Province(models.Model):
+    province_id = models.IntegerField(primary_key=True)
+    province_name = models.CharField(max_length=20, blank=True, null=True)
+    country = models.ForeignKey(Country, blank=True, null=True)
+    
+    def __str__(self):
+        return self.province_name
+
+    class Meta:
+        managed = True
+        db_table = 'province'
+
+
+class Role(models.Model):
+    role_id = models.IntegerField(primary_key=True)
+    role = models.CharField(max_length=20, blank=True, null=True)
+    
+    def __str__(self):
+        return self.role
+
+
+    class Meta:
+        managed = True
+        db_table = 'role'
+
+
+class SecurityQuestions(models.Model):
+    sec_ques_id = models.AutoField(primary_key=True)
+    sec_ques = models.CharField(max_length=50, blank=True, null=True)
+    
+    def __str__(self):
+        return self.sec_ques
+
+    class Meta:
+        managed = True
+        db_table = 'security_questions'
+
+
+class Sports(models.Model):
+    sports_id = models.IntegerField(primary_key=True)
+    sports_name = models.CharField(max_length=20, blank=True, null=True)
+    
+    def __str__(self):
+        return self.sports_name
+
+    class Meta:
+        managed = True
+        db_table = 'sports'
+
+
+class Team(models.Model):
+    reg_id = models.ForeignKey(Onboarding)
+    name = models.CharField(max_length=50)
+    level = models.ForeignKey(Level, db_column='level', blank=True, null=True)
+    yrs_of_exp = models.IntegerField(blank=True, null=True)
+    period_from = models.DateField(blank=True, null=True)
+    period_to = models.DateField(blank=True, null=True)
+    place = models.CharField(max_length=30, blank=True, null=True)
+    achievements = models.CharField(max_length=500, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'team'
+        unique_together = (('reg_id', 'name'),)
+
+		
+class Asset(models.Model):
+    asset_id = models.IntegerField(primary_key=True)
+    asset = models.CharField(max_length=45, blank=True)
+	
+    def __str__(self):
+        return self.asset
+		
+	class Meta:
+         managed = False
+        
+class School(models.Model):
+    school_name = models.CharField(max_length=45, blank=True)
+
+    def __str__(self):
+        return self.school_name
+		
+    class Meta:
+        managed = True
+class Vendor(models.Model):
+     name = models.CharField(max_length=45, blank=True)
+     assets = models.ManyToManyField(Asset,through='VendorAsset')
+     sports = models.ManyToManyField(Sports)
+
+     def __str__(self):
+         return self.name
+	
+     class Meta:
+        managed = True
+       
+		
+		
+class VendorAsset(models.Model):
+    vendor = models.ForeignKey(Vendor, blank=True, null=True)
+    asset = models.ForeignKey(Asset, blank=True, null=True)
+    max_quantity = models.IntegerField(blank=True, null=True)
+    quantity_left = models.IntegerField(blank=True, null=True)		
+
+    class Meta:
+        managed = True
+       
+
+	
+class AssetManagement(models.Model):
+    asset = models.ForeignKey(Asset, blank=True, null=True)
+    sports = models.ForeignKey(Sports, blank=True, null=True)
+    vendor = models.ForeignKey(Vendor, blank=True, null=True)
+    school = models.ForeignKey(School, blank=True, null=True)
+    max_quantity = models.IntegerField(blank=True, null=True)
+    quantity_left = models.IntegerField(blank=True, null=True)
+    issue_date = models.DateTimeField(blank=True, null=True)
+    return_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+
+  

@@ -1,0 +1,15 @@
+ {% extends "header.html" %}
+{%block cssIncludes%}
+	{% include 'material/includes/material_css.html' %}
+    {% include 'material/includes/material_js.html' %}
+{%endblock%}
+{% load material_form %} 
+{% load render_table from django_tables2 %}
+{%block bodyContent%} 
+  <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
+    {% include "django_tables2_simplefilter/filter_selection.html" with filters=filters only %}
+{% render_table table %}
+{%endblock%}

@@ -1,0 +1,242 @@
+{% load staticfiles %}
+ <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+		<link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+		<link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/widget.css' %}" rel="stylesheet">
+		<link href="{% static 'css/color.css' %}" rel="stylesheet">
+		<link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+		<link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/rankings.css' %}">
+{% comment %}main banner{% endcomment %}
+<div id="highlighter">
+    <div>
+     <img class="img-responsive" src="{% static 'images/bg-1.jpg' %}">
+     <h1 style="margin-left: 3%;
+    margin-top: -50px;
+    color: #FFF;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 28px;">Rankings</h1>
+    </div>
+</div>
+
+{% comment %}sports{% endcomment %}
+<div class="nav-wrap" style="padding-top: 10px; !important">
+    <ul class="nav nav-pills lev2">
+
+            <a title="Rugby" href="" style="margin-left: 1%; margin-right: 2%;"><span><img src="{% static 'images/rugby.png' %}"></span></a>
+
+            <a title="Hockey" href="" style="margin-right: 2%;"><span><img src="{% static 'images/hockey.png' %}"></span></a>
+
+            <a title="Football" href="" style="margin-right: 2%;"><span><img src="{% static 'images/football.png' %}"></span></a>
+
+            <a title="Aquatics" href="" style="margin-right: 2%;"><span><img src="{% static 'images/aquatics.png' %}"></span></a>
+
+            <a title="Karate" href="" style="margin-right: 2%;"><span><img src="{% static 'images/karate.png' %}"></span></a>
+
+            <a title="Volleyball" href="" style="margin-right: 2%;"><span><img src="{% static 'images/volleyball.png' %}"></span></a>
+
+            <a title="Athletics" href="" style="margin-right: 2%;"><span><img src="{% static 'images/athletics.png' %}"></span></a>
+
+            <a title="Archery" href="" style="margin-right: 2%;"><span><img src="{% static 'images/archery.png' %}"></span></a>
+
+            <a title="Badminton" href="" style="margin-right: 2%;"><span><img src="{% static 'images/badminton.png' %}"></span></a>
+
+            <a title="Boxing" href="" style="margin-right: 2%;"><span><img src="{% static 'images/boxing.png' %}"></span></a>
+
+            <a title="Golf" href="" style="margin-right: 2%;"><span><img src="{% static 'images/golf.png' %}"></span></a>
+
+            <a title="Gymnastics" href="" style="margin-right: 2%;"><span><img src="{% static 'images/gymnastics.png' %}"></span></a>
+
+            <a title="Cricket" href="" style="margin-right: 2%;"><span><img src="{% static 'images/cricket.png' %}"></span></a>
+
+            <a title="Wrestling" href="" style="margin-right: 2%;"><span><img src="{% static 'images/wrestling.png' %}"></span></a>
+
+            <a title="Tennis" href="" style="margin-right: 2%;"><span><img src="{% static 'images/tennis.png' %}"></span></a>
+
+            <a title="Fencing" href="" style="margin-right: 2%;"><span><img src="{% static 'images/fencing.png' %}"></span></a>
+
+            <a title="Pentathlon" href="" style="margin-right: 2%;"><span><img src="{% static 'images/petathlon.png' %}"></span></a>
+
+            <a title="Triathlon" href="" style="margin-right: 2%;"><span><img src="{% static 'images/triathlon.png' %}"></span></a>
+
+            <a title="Triathlon" href="" style="margin-right: 2%;"><span><img src="{% static 'images/judo.png' %}"></span></a>
+
+            <a title="Triathlon" href="" style="margin-right: 2%;"><span><img src="{% static 'images/canoeing.png' %}"></span></a>
+    </ul>
+</div>
+
+{% comment %}subheader{% endcomment %}
+<div class="kode-subheader subheader-height" style="margin-top: 1%;    margin-bottom: 2%;">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" style="padding-left: 3%;">
+              <h1>Rugby Rankings</h1>
+            </div>
+          </div>
+        </div>
+ </div>
+
+{% comment %}table{% endcomment %}
+<table class="kd-table kd-tabletwo">
+    <thead>
+    <tr>
+    <th class="tbl-rank">Rank</th>
+    <th class="tbl-teamname">Team</th>
+    <th class="tbl-isprovisional hidden"></th>
+    <th class="tbl-countrycode hidden"></th>
+    <th class="tbl-points">Total Points</th>
+    <th class="tbl-prevpoints">Previous Points</th>
+    <th class="tbl-prevpoints">+/-</th>
+
+    <th class="tbl-trend-icon">Positions</th>
+    </thead>
+    <tbody>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">1</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/gauteng.png' %}" class="flag"></span>
+            <a href="">Gauteng</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1440<span class="ranking-rawpoints">
+<span dir="ltr">(1439.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1387</span></td>
+        <td class="tbl-prevrank"><span class="text">2</span></td>
+        <td class="tbl-prevrank-icon">
+            <img src="{% static 'images/uparrow.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">2</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/Mpumalanga.png' %}" class="flag"></span>
+            <a href="">Mpumalanga</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1388<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon"><img src="{% static 'images/constant.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">3</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/Eastern_Cape.png' %}" class="flag"></span>
+            <a href="">Eastern Cape</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1383<span class="ranking-rawpoints">
+<span dir="ltr">(1382.85)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1419</span></td>
+        <td class="tbl-prevrank"><span class="text">-2</span></td>
+        <td class="tbl-prevrank-icon"><img src="{% static 'images/down.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">4</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/Free_State.png' %}" class="flag"></span>
+            <a href="">Free State</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1364<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon"><img src="{% static 'images/down.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">5</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/Limpopo.png' %}" class="flag"></span>
+            <a href="">Limpopo</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1388<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon"><img src="{% static 'images/constant.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">6</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/Northern Cape.png' %}" class="flag"></span>
+            <a href="">Northern Cape</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1388<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon">
+            <img src="{% static 'images/uparrow.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">7</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/northwest.gif' %}" class="flag"></span>
+            <a href="">North West</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1388<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon">
+            <img src="{% static 'images/uparrow.png' %}"/></td>
+    </tr>
+    <tr class="anchor" id="rnk_2">
+        <td class="tbl-rank"><span class="text">8</span></td>
+        <td class="tbl-teamname"><span class="flag-wrap">
+<img alt="GER" title="GER" src="{% static 'images/western_cape.png' %}" class="flag"></span>
+            <a href="">Western Cape</a></td>
+        <td class="tbl-isprovisional hidden">
+            <span class="text">0</span></td>
+        <td class="tbl-countrycode hidden">
+            <span class="text">GER</span></td>
+        <td class="tbl-points">1388<span class="ranking-rawpoints">
+<span dir="ltr">(1388.40)</span></span></td>
+        <td class="tbl-prevpoints"><span class="text">1401</span></td>
+        <td class="tbl-prevrank"><span class="text">0</span></td>
+        <td class="tbl-prevrank-icon"><img src="{% static 'images/constant.png' %}"/></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/jquery.countdown.js' %}"></script>
+		<script src="{% static 'js/waypoints-min.js' %}"></script>
+		<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+		<script src="{% static 'js/jquery.accordion.js' %}"></script>
+		<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+		<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+		<script src="{% static 'js/kode_pp.js' %}"></script>
+		<script src="{% static 'js/functions.js' %}"></script>

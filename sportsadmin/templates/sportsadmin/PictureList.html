@@ -1,0 +1,234 @@
+	{% load table_tags %}
+	{% load staticfiles %}
+<link href="{% static 'sportsadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<script src="{% static 'sportsadmin/js/jquery-2.1.4.min.js' %}"></script> 
+<script src="{% static 'sportsadmin/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'sportsadmin/js/commonUtils.js' %}"></script>
+
+        
+
+<style type="text/css">
+
+ .modal.modal-wide .modal-dialog {
+  width: 80%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+
+document.getElementById("select_image_btn").onchange = function () {
+	    var reader = new FileReader();
+
+	    reader.onload = function (e) {
+	        // get loaded data and render thumbnail.
+	        document.getElementById("image").src = e.target.result;
+	    }; 
+	    // read the image file as a data URL.
+	    reader.readAsDataURL(this.files[0]);
+	};
+	
+	$(".fa-file-text").on("click", function() {
+		
+		$('#addPhotoModal').modal('show'); 	
+		pictureId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewPhoto/'+'?pictureId='+pictureId;
+		PhotoViewEdit(url);
+		viewOnlyAccess();
+		
+	});
+	$('.fa-edit').on("click",function(){
+		console.log("hit edit");
+		$('#addPhotoModal').modal('show'); 
+		pictureId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewPhoto/'+'?pictureId='+pictureId;
+		PhotoViewEdit(url);
+		$('#action_type').val("edit");
+		$('#picture_id').val(pictureId);
+		
+	});
+	 
+	$(".fa-trash-o").on("click", function() {
+		
+		pictureId = $(this).closest('tr').find('td:eq(0)').html();
+		$("#yesDelPhoto").on("click", function(){
+		   alert('delete get called');
+			var url = '/deletePhoto/'+'?pictureId='+pictureId;
+		 	$.ajax({
+				url : url,
+				type : "GET",
+				dataType : {},}) 
+			    .done(function(data) {
+			    	alert("after delete");
+			    	
+			});
+		});
+	  });
+	   $('#addPhotoModal').on('hidden.bs.modal', function () {
+		   tab_handler('Photo');
+	});
+	 $('#deletePhotoModal').on('hidden.bs.modal', function () {
+		   tab_handler('Photo');
+	}); 
+});
+
+function viewOnlyAccess()
+{
+	$('#id_url').prop("disabled", true);
+	$('#id_alt').prop("disabled", true);
+	$('#id_longdesc').prop("disabled", true);
+	$('#id_float').prop("disabled", true);
+	$('#select_image_btn').prop("disabled", true);
+	
+}
+
+function PhotoViewEdit(url)
+{
+	$
+	.ajax({
+		url : url,
+		type : "GET",
+		dataType : 'json',}) 
+		.done(function(data) {
+				    console.log(data.photo.picture_id);
+	          		$('#id_url').val(data.photo.url);   	
+       				$('#id_alt').val(data.photo.alt);   
+	          		$('#id_longdesc').val(data.photo.longdesc);
+					$('#id_float').val(data.photo.float);
+					
+					var msg=data.photo.image;
+					if(msg.startsWith("./"))
+					  { 
+						var newVal=msg.split(".");
+						var Val=("/media".concat(newVal[1])).concat(".".concat(newVal[2]));
+						$('#image').attr('src',Val);}
+					else{
+						var word=msg.split(",");
+						$('#image').attr('src',word[1]);}
+		});
+	
+}
+
+
+</script>
+<div class="col-md-3 col-sm-6 col-xs-12" style="float: right;width:30%"
+ data-toggle="modal" data-target="#addPhotoModal">
+ <div class="info-box">
+  <span class="info-box-icon bg-green"><i
+   class="fa fa-plus-circle"></i></span>
+		
+  <div class="info-box-content" id="addVideo" style="padding: 34px 58px; margin-left: 70px;width: 100%;">
+   <span class="info-box-text">Add Photo</span>
+  </div>
+  <!-- /.info-box-content -->
+ </div>
+ <!-- /.info-box -->
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deletePhotoModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Are you sure you want
+					to Delete the Photo ?</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="yesDelPhoto"
+						data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-primary" id="noDelPhoto" name="no"
+						data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Add School Modal -->
+<div class="modal fade modal-wide" id="addPhotoModal" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+     aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Add New Photo</h4>
+   </div>
+   <div class="modal-body">
+    
+    <form role="form"  method="POST" action="{% url 'add' %}"  enctype="multipart/form-data">
+    {% csrf_token %}
+	<input type="hidden" name="action_type" id="action_type" value="add"/>
+    <input type="hidden" name="picture_id" id="picture_id" value=""/>
+  
+	<div class="row">
+										
+										<label>Upload Image</label>
+										 <input name="photo" id ="select_image_btn"   type="file" /> 
+										 <input type="hidden" name="hidden_photo" id="hidden_photo" value=""/>
+									 <!--{{pictureform.image}}-->
+										<img id="image" name="image" style="width:170px;height:170px; border:1px solid black"/>
+									</div>
+									<div class="row">
+										
+										<div class="col-sm-3 form-group">
+											  <label>url</label>
+											   {{pictureform.url}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>alt</label>
+											   {{pictureform.alt}}
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>longdesc</label>
+											   {{pictureform.longdesc}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>float</label>
+											   {{pictureform.float}}
+										</div>
+										
+									</div>
+					<input type="submit" id="save" class="btn btn-default" name="save" />
+                    <button type="button" class="btn btn-default" id="idClose" data-dismiss="modal">Close</button>
+    </form> 
+  </div>
+
+  </div>
+ </div>
+</div>
+
+
+<!-- Main content -->
+<section class="content">
+ <div class="row">
+  <div class="col-xs-12">
+   <div class="box">
+    <div class="box-header">
+     <h3 class="box-title">List of Picture</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">{%render_table PictureList%}</div>
+    <!-- /.box-body -->
+   </div>
+   <!-- /.box -->
+  </div>
+  <!-- /.col -->
+ </div>
+ <!-- /.row -->
+</section>

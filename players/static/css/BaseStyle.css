@@ -1,0 +1,100 @@
+
+.reg_form_header{
+text-align: center;
+}
+
+.players_reg_form{
+border:1px solid black; 
+margin:0 auto; 
+padding:15px;
+text-align: center;
+width: 73%;
+}
+.custom-textbox  input  {
+	width: 100%;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+	margin:0 auto;
+}
+
+.custom-textbox  select {
+	width: 100%;
+	margin:0 auto;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+}
+
+.reg_form_header{
+    text-align: center;
+    font-size: x-large;
+    background: #E8DEDE;
+
+}
+
+.top-buffer{
+	margin-top:30px;
+}
+
+.submit-button
+{
+	width: 110px;
+    margin-right: 30px;
+}
+hr{
+border-top: 1px solid #314c81;
+}
+.cancel-button{
+	width: 110px;
+    margin-left: 20px;
+}
+
+.button-row{
+	margin-top: 30px;
+    width: 70%;
+}
+
+.sports-list-td{
+cursor:pointer;
+}
+
+.tab-header{
+	background: #00ac77;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    height: 43px
+
+}
+
+.tab-inner-div{
+    background: white;
+    width: 100%;
+}
+
+.tab-outer-div{
+    background: #e3e5e6;
+    border: 1px solid;
+}
+
+.thead-cutomWidth th{
+width:13% important;
+}
+
+.imgSize{
+margin-left: 68px;
+}
+tr{
+background-color: #466db9;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.thCustom{
+font-size: x-small;
+    width: 2px;
+	padding: 18px;
+}
+.textDecor{
+text-transform:lowercase;
+    font-size: 11px;
+}

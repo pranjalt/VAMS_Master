@@ -1,0 +1,100 @@
+{%load staticfiles %}
+<!--{%load crispy_forms_tags%} -->
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+	<div class="test players_reg_form">
+				<div> <h5 class="reg_form_header">Players Registration form</h5></div>	
+					{% csrf_token %}
+					<div class="container">
+						
+						<div class="row">
+							<div class="col-xs-3">First Name</div>
+							<div class="col-xs-2">Middle Name</div>
+							<div class="col-xs-3">Last Name</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-3 custom-textbox">{{form.first_name}}</div>
+							<div class="col-xs-2"> <div class="custom-textbox"> {{form.middle_name}}</div></div>
+							<div class="col-xs-3"><div class="custom-textbox"> {{form.last_name}}</div></div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4">Gender</div>
+							<div class="col-md-4">email</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-md-4 custom-textbox">{{form.email_id}} </div>
+							<div class="col-md-4 custom-textbox">{{form.email_id}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4">Sports</div>
+							<div class="col-md-4">Total Year Of Experience:</div>
+						</div>
+							
+						<div class="row">
+							<div class="col-md-4 custom-textbox">{{form.sports}} </div>
+							<div class="col-md-4 custom-textbox">{{form.total_yrs_exp}}</div>
+						</div>
+						
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 custom-textbox">Select Sequacity 1 </div>
+							<div class="col-md-4 custom-textbox">Answer 1</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 custom-textbox">{{form.sec_ques1}}</div>
+							<div class="col-md-4 custom-textbox">{{form.sec_ans1}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 custom-textbox">Select Sequacity 2 </div>
+							<div class="col-md-4 custom-textbox">Answer 2</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-4 custom-textbox">{{form.sec_ques2}}</div>
+							<div class="col-md-4 custom-textbox">{{form.sec_ans2}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-3 custom-textbox">Country</div>
+							<div class="col-md-2 custom-textbox">province</div>
+							<div class="col-md-3 custom-textbox">City</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-3 custom-textbox">{{form.country}}</div>
+							<div class="col-md-2 custom-textbox">{{form.province}}</div>
+							<div class="col-md-3 custom-textbox">{{form.city}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-3 custom-textbox">Street 1</div>
+							<div class="col-md-2 custom-textbox">Stree 2</div>
+							<div class="col-md-3 custom-textbox">Zipcode</div>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-3 custom-textbox">{{form.street1}}</div>
+							<div class="col-md-2 custom-textbox">{{form.street2}}</div>
+							<div class="col-md-3 custom-textbox">{{form.zipcode}}</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-4 custom-textbox">Role</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-md-8 custom-textbox">{{form.role}}</div>
+						</div>
+						
+						<div class="row button-row">
+						<button type="submit" name="submit" class="btn btn-primary btn-lg submit-button">Submit</button>
+						<button class="btn btn-danger btn-lg cancel-button">Cancel</button>	 
+						</div>
+					</div>
+				
+	</div>
+        

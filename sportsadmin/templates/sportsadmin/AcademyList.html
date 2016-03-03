@@ -1,0 +1,306 @@
+	{% load table_tags %}
+	{% load staticfiles %}
+<link href="{% static 'sportsadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+<script src="{% static 'sportsadmin/js/jquery-2.1.4.min.js' %}"></script> 
+<script src="{% static 'sportsadmin/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'sportsadmin/js/commonUtils.js' %}"></script>
+
+        
+
+<style type="text/css">
+
+ .modal.modal-wide .modal-dialog {
+  width: 80%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+	
+ 	
+	
+	$(".fa-trash-o").on("click", function() {
+		
+		academyId = $(this).closest('tr').find('td:eq(0)').html();
+		$("#yesDelAcademy").on("click", function(){
+		   
+			var url = '/deleteAcademy/'+'?academyId='+academyId;
+		 	$.ajax({
+				url : url,
+				type : "GET",
+				dataType : {},}) 
+			    .done(function(data) {
+			    	console.log("deleted record");
+			    	
+			});
+		});
+	  });
+	  
+	$('.fa-edit').on("click",function(){
+		console.log("hit edit");
+		$('#addAcademyModal').modal('show'); 
+		academyId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewAcademy/'+'?academyId='+academyId;
+		AcademyViewEdit(url);
+		$('#action_type').val("edit");
+		
+	});
+	 
+	 $(".fa-file-text").on("click", function() {
+		
+		$('#addAcademyModal').modal('show'); 	
+		academyId = $(this).closest('tr').find('td:eq(0)').html();
+		var url= '/viewAcademy/'+'?academyId='+academyId;
+		AcademyViewEdit(url);
+		viewOnlyAccess();
+		
+	});
+	  
+	 $('#addAcademyModal').on('hidden.bs.modal', function () {
+		   tab_handler('Academy');
+	});
+	 $('#deleteAcademyModal').on('hidden.bs.modal', function () {
+		   tab_handler('Academy');
+	}); 
+	
+	
+	
+});
+
+function viewOnlyAccess()
+{
+	$('#id_name').prop("disabled", true);
+	$('#id_estd').prop("disabled", true);
+	$('#id_email_id').prop("disabled", true);
+	$('#id_contact_no').prop("disabled", true);
+	$('#id_website').prop("disabled", true);
+	$('#id_street1').prop("disabled", true);
+	$('#id_street2').prop("disabled", true);
+	$('#id_zipcode').prop("disabled", true);
+	$('#id_city').prop("disabled", true);
+	$('#id_province').prop("disabled", true);
+	$('#id_country').prop("disabled", true);
+	}
+
+function AcademyViewEdit(url)
+{
+	$
+	.ajax({
+		url : url,
+		type : "GET",
+		dataType : 'json',}) 
+		.done(function(data) {
+				    console.log(data.academy.acd_reg_id);
+	          		$('#academy_id').val(data.academy.acd_reg_id);   	
+       				$('#address_id').val(data.address.address_id);   
+	          		$('#id_estd').val(data.academy.estd);
+					$('#id_name').val(data.academy.name);
+					$('#id_email_id').val(data.academy.email_id);
+	          		$('#id_website').val(data.academy.website);	          		
+	          		$('#id_contact_no').val(data.academy.contact_no);	          		
+	          	
+	          		/* Academy Address */
+                    console.log(data.address.address_id)					
+	          		$('#id_street1').val(data.address.street1);	          			          		
+	          		$('#id_street2').val(data.address.street2);	          			          		
+	          		$('#id_zipcode').val(data.address.zipcode);	          			          		
+	          		
+	          		
+	          		$('#id_city').append('<option selected=selected  value=' + data.city.city_id + '>'+data.city.city_name+'</option>');
+	          		$('#id_province').append('<option selected=selected value=' + data.province.province_id + '>'+data.province.province_name+'</option>');
+	          		$('#id_country').append('<option selected=selected value=' + data.country.country_id + '>'+data.country.country_name+'</option>');
+	          	  	
+		});
+	
+}
+
+
+$('#saveStudBtn').on("click" , function(){
+
+
+// catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $('#Academy').serialize(), // get the form data
+                type: $('#Academy').attr('method'), // GET or POST
+                url: $('#Academy').attr('action'), // the file to call
+                success: function(response) { // on success..
+                    // update the DIV
+                }
+            });	
+});
+
+
+
+</script>
+<div class="col-md-3 col-sm-6 col-xs-12" style="float: right;width:30%"
+ data-toggle="modal" data-target="#addAcademyModal">
+ <div class="info-box">
+  <span class="info-box-icon bg-green"><i
+   class="fa fa-plus-circle"></i></span>
+		
+  <div class="info-box-content" id="addAcademy" style="padding: 34px 58px; margin-left: 70px;width: 100%;">
+   <span class="info-box-text">Add Academy</span>
+  </div>
+  <!-- /.info-box-content -->
+ </div>
+ <!-- /.info-box -->
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteAcademyModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">Are you sure you want
+					to Delete the student Record ?</h4>
+			</div>
+			<div class="modal-body">
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" id="yesDelAcademy"
+						data-dismiss="modal">Yes</button>
+					<button type="button" class="btn btn-primary" id="noDelAcademy" name="no"
+						data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Add School Modal -->
+<div class="modal fade modal-wide" id="addAcademyModal" tabindex="-1" role="dialog"
+ aria-labelledby="myModalLabel">
+ <div class="modal-dialog" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"
+     aria-label="Close">
+     <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">Add New Academy</h4>
+   </div>
+   <div class="modal-body">
+    
+    <form role="form"  id="Academy" method="POST" action="{% url 'addAcademy' %}">
+    <input type="hidden" name="action_type" id="action_type" value="add"/>
+    <input type="hidden" name="academy_id" id="academy_id" value=""/>
+    <input type="hidden" name="address_id" id="address_id" value=""/>
+    {% csrf_token %} 
+    
+     <!-- {{ AddressFormSet.management_form }} -->
+     <!-- text input -->
+     <div id="loadForm">
+	     <div class="container">
+				<div class="col-lg-12">
+					<div class="row">
+							
+								<div class="col-sm-12">
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Name</label>
+											   {{Academyform.name}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Establishment Date</label>
+											   {{Academyform.estd}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Email Id</label>
+											   {{Academyform.email_id}}
+										</div>
+										
+									</div>
+									
+									<div class="row">
+									<div class="col-sm-3 form-group">
+											  <label>Contact No</label>
+											   {{Academyform.contact_no}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Website</label>
+											   {{Academyform.website}}		   								
+										</div>
+										
+									</div>
+									
+									
+									
+									
+									<div class="row form-group">
+										<label>  Address :</label>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 1</label>
+											   {{addressform.street1}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Street Number 2</label>
+											   {{addressform.street2}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Zipcode</label>
+											   {{addressform.zipcode}}
+										</div>
+									</div>
+									
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											  <label>City</label>
+											   {{addressform.city}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Province</label>
+											   {{addressform.province}}
+										</div>
+										<div class="col-sm-3 form-group">
+											  <label>Country</label>
+											   {{addressform.country}}
+										</div>
+									</div>
+															
+							</div>
+							
+					</div>
+				</div>
+			</div>	     
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-default" id="idClose" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default" id="saveStudBtn"  name="save" data-dismiss="modal">save</button>
+     </div>
+    </form> 
+  </div>
+
+  </div>
+ </div>
+</div>
+
+
+<!-- Main content -->
+<section class="content">
+ <div class="row">
+  <div class="col-xs-12">
+   <div class="box">
+    <div class="box-header">
+     <h3 class="box-title">List of Academy</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">{%render_table AcademyList%}</div>
+    <!-- /.box-body -->
+   </div>
+   <!-- /.box -->
+  </div>
+  <!-- /.col -->
+ </div>
+ <!-- /.row -->
+</section>

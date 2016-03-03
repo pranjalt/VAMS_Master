@@ -1,0 +1,317 @@
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+		<link href="{% static 'css/themetypo.css' %}" rel="stylesheet">
+		<link href="{% static 'css/styletheme/style.css' %}" rel="stylesheet">
+		<link href="{% static 'css/widget.css' %}" rel="stylesheet">
+		<link href="{% static 'css/color.css' %}" rel="stylesheet">
+		<link href="{% static 'css/flexslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+		<link href="{% static 'css/jquery.bxslider.css' %}" rel="stylesheet">
+		<link href="{% static 'css/prettyphoto.css' %}" rel="stylesheet">
+		<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <style>
+   #currentMatchSingleOwlCarousel .item .owl-item{
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+}
+    </style>
+    <script>
+    $(document).ready(function() {
+  $("#currentMatchSingleOwlCarousel").owlCarousel({
+
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+
+      // "singleItem:true" is a shortcut for:
+      // items : 1,
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+
+  });
+
+});
+
+</script>
+</head>
+<body>
+{% comment %}
+<section class="kode-pagesection padding-30-topbottom bg-white">
+          <div class="container">
+
+            <div class="row">
+             <div class="col-md-12">
+                 <div class="kode-section-title"> <h2>Current Matches Statistics</h2> </div>
+             <div id="currentMatchSingleOwlCarousel" class="owl-carousel owl-theme next-prev-style">
+
+              <div class="item">
+                <figure>
+                        <figcaption>
+              <div class="kode-result-list shape-view col-md-12">
+
+<div class="clear clearfix"></div>
+                <div class="row" style="    padding-top: 20%;">
+                  <div class="col-md-6">
+                    <article>
+                      <span class="kode-result-count thbg-colortwo">3</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo1.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Tiburones</a> <span>Win</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                          <li>John gaga <span>(91’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-md-6">
+                    <article class="kode-even">
+                      <span class="kode-result-count thbg-colortwo">2</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo2.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Club DE.C.V</a> <span>Los</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+                            </figcaption>
+                      </figure>
+             </div>{% endcomment %}{% comment %}closing tag for item{% endcomment %}{% comment %}
+
+                 <div class="item">
+                <figure>
+                        <figcaption>
+              <div class="kode-result-list shape-view col-md-12">
+<div class="clear clearfix"></div>
+                <div class="row" style="    padding-top: 20%;">
+                  <div class="col-md-6">
+                    <article>
+                      <span class="kode-result-count thbg-colortwo">8</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo1.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Tiburones</a> <span>Win</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                          <li>John gaga <span>(91’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-md-6">
+                    <article class="kode-even">
+                      <span class="kode-result-count thbg-colortwo">9</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo2.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Club DE.C.V</a> <span>Los</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+                            </figcaption>
+                      </figure>
+             </div>{% endcomment %}{% comment %}closing tag for item{% endcomment %}{% comment %}
+
+             <div class="item">
+                  <figure>
+                        <figcaption>
+              <div class="kode-result-list shape-view col-md-12">
+<div class="clear clearfix"></div>
+                <div class="row" style="    padding-top: 20%;">
+                  <div class="col-md-6">
+                    <article>
+                      <span class="kode-result-count thbg-colortwo">4</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo1.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Tiburones</a> <span>Win</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                          <li>John gaga <span>(91’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-md-6">
+                    <article class="kode-even">
+                      <span class="kode-result-count thbg-colortwo">6</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo2.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Club DE.C.V</a> <span>Los</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+                 </figcaption>
+                      </figure>
+             </div>{% endcomment %}{% comment %}closing tag for item{% endcomment %}{% comment %}
+
+            </div>{% endcomment %}{% comment %}closing tag for owl carousel{% endcomment %}{% comment %}
+           </div>{% endcomment %}{% comment %}closing tag for col-md-12{% endcomment %}{% comment %}
+          </div>{% endcomment %}{% comment %}closing tag for row{% endcomment %}{% comment %}
+         </div> {% endcomment %}{% comment %}closing tag for container{% endcomment %}{% comment %}
+        </section>
+        <!--// Page Content //-->{% endcomment %}
+ <!--// Page Content //-->
+        <section class="kode-pagesection padding-30-topbottom bg-white">
+          <div class="container">
+		  <div class="flexslider">
+			<ul class="slides">
+				<li>
+					<div class="row">
+						<div class="kode-result-list shape-view col-md-12">
+							<div class="heading heading-12 margin-top30-bottom80">
+								<h2><span class="left"></span>Current Match Statistics <span class="right"></span></h2>
+							</div>
+						<div class="clear clearfix"></div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<article>
+							<span class="kode-result-count thbg-colortwo">3</span>
+							<div class="kode-result-thumb">
+								<a href="#"><img src="{% static "extra-images/result-logo1.png" %}" alt=""></a>
+							</div>
+							<div class="kode-result-info">
+							<h2><a href="#">Tiburones</a> <span>Win</span></h2>
+							<ul>
+								<li>CareaL <span>(17’)</span></li>
+								<li>Wellington Silva <span>(51’)</span></li>
+								<li>John gaga <span>(91’)</span></li>
+							</ul>
+							</div>
+							</article>
+						</div>
+						<div class="col-md-6">
+							<article class="kode-even">
+							<span class="kode-result-count thbg-colortwo">2</span>
+							<div class="kode-result-thumb">
+								<a href="#"><img src="{% static "extra-images/result-logo2.png" %}" alt=""></a>
+							</div>
+							<div class="kode-result-info">
+								<h2><a href="#">Club DE.C.V</a> <span>Lose</span></h2>
+								<ul>
+									<li>CareaL <span>(17’)</span></li>
+									<li>Wellington Silva <span>(51’)</span></li>
+								</ul>
+							</div>
+							</article>
+						</div>
+                `	</div>
+				</div>
+				</div>
+				</li>
+				<li>
+				<div class="row">
+
+					<div class="kode-result-list shape-view col-md-12">
+						<div class="heading heading-12 margin-top30-bottom80">
+							<p>Devoted to</p>
+								<h2><span class="left"></span>Current Match Statistics <span class="right"></span></h2>
+						</div>
+				<div class="clear clearfix"></div>
+
+				<div class="row">
+                  <div class="col-md-6">
+                    <article>
+                      <span class="kode-result-count thbg-colortwo">6</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo1.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Tiburones</a> <span>Win</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                          <li>John gaga <span>(91’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-md-6">
+                    <article class="kode-even">
+                      <span class="kode-result-count thbg-colortwo">8</span>
+                      <div class="kode-result-thumb">
+                        <a href="#"><img src="{% static "extra-images/result-logo2.png" %}" alt=""></a>
+                      </div>
+                      <div class="kode-result-info">
+                        <h2><a href="#">Club DE.C.V</a> <span>Lose</span></h2>
+                        <ul>
+                          <li>CareaL <span>(17’)</span></li>
+                          <li>Wellington Silva <span>(51’)</span></li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+				</div>
+          </div>
+				</li>
+				</ul>
+
+
+            </div>
+          </div>
+           {% comment %} <div>
+               <img src="{% static "images/absa.jpg" %}" class="leftImage2 img-responsive"/>
+                 <img src="{% static "images/reebok.jpg" %}" class="rightImage4 img-responsive"/>
+            </div>{% endcomment %}
+        </section>
+        <!--// Page Content //-->
+        <script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'js/jquery.flexslider.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+		<script src="{% static 'js/jquery.countdown.js' %}"></script>
+		<script src="{% static 'js/waypoints-min.js' %}"></script>
+		<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+		<script src="{% static 'js/bootstrap-progressbar.js' %}"></script>
+		<script src="{% static 'js/jquery.accordion.js' %}"></script>
+		<script src="{% static 'js/jquery.circlechart.js' %}"></script>
+		<script src="{% static 'js/jquery.prettyphoto.js' %}"></script>
+		<script src="{% static 'js/kode_pp.js' %}"></script>
+		<script src="{% static 'js/functions.js' %}"></script>
+
+</body>
+</html>
